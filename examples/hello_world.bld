@@ -2,4 +2,4 @@
 
 act main() {
     sys.output = "Hello, World!";
-}
+    }
