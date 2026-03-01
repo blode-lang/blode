@@ -49,26 +49,26 @@ act main() {
     sys.clear();
     sys.output = "Blode console test";
     sys.wait(1);
+    sys.output = "Exit!";
 }
 ```
 # What’s Next
-Planned improvements:
-Basic math and logic
-Variables and simple types
-Better string handling
-Eventually, graphical windows and UI elements
-Cleaner build and run process
-For now, Blode is about experimenting with syntax and creating small, standalone Windows executables.
-How to Try
-Currently, you need to clone the repository and build the compiler from source. There are no ready-to-use downloads yet.
-Planned future commands:
-Bash
-Copy code
+## Planned improvements:
+• Basic math and logic
+• Variables and simple types
+• Better string handling
+• Eventually, graphical windows and UI    elements
+• Cleaner build and run process
+• For now, Blode is about experimenting   with syntax and creating small,          standalone Windows executables.
+# How to Try
+Currently, blode is in development and will be will soon available for download.
+# Planned future commands:
+```bash
 blode run example.bld
 blode build example.bld
-Contributing / Support
+```
+# Support
 Since this is a solo project, any interest helps:
 ⭐ Star the repository
-📝 Open an issue with thoughts or questions
 💬 Share the kinds of programs you’d like to create
 Thank you for checking out Blode!
