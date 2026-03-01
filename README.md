@@ -3,7 +3,7 @@
 > ⚠️ Blode is in early development and not yet available.  
 > This is a solo project, so progress is slow.
 
-Blode is a small, C++-based programming language designed to create **native Windows .exe programs**. The focus right now is on **simple terminal programs** using only the `sysio` library.
+Blode is a small, C++-based programming language designed to create **native Windows .exe programs**. The focus right now is on **simple terminal programs** using only the `sysio` library from blode.
 
 ---
 
@@ -29,18 +29,19 @@ Everything else (math, logic, variables, files, graphics, sound) is not implemen
 act main() {
     sys.output = "Hello from Blode";
 }
+```
 Clear Screen and Show Message
-Blode
-Copy code
+
+```blode
 #contain <sysio>
 
 act main() {
     sys.clear();
-    sys.output = "Starting fresh";
+    sys.output = "Terminal cleaned";
 }
+```
 Wait for Keypress
-Blode
-Copy code
+```blode
 #contain <sysio>
 
 act main() {
@@ -48,9 +49,9 @@ act main() {
     sys.output = "Press any key to close...";
     sys.wait();
 }
+```
 Combined Example
-Blode
-Copy code
+```blode
 #contain <sysio>
 
 act main() {
@@ -59,7 +60,8 @@ act main() {
     sys.output = "Window stays open until you press a key";
     sys.wait();
 }
-What’s Next
+```
+# What’s Next
 Planned improvements:
 Basic math and logic
 Variables and simple types
