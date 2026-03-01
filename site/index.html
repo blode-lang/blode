@@ -3,346 +3,126 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blode — Act. Execute. Own.</title>
+  <title>Blode — Native Windows Programs, Simply.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- CRT Scanline Overlay -->
-  <div class="crt-overlay" aria-hidden="true"></div>
-  <div class="noise-overlay" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
 
   <!-- NAV -->
-  <nav class="nav" id="nav">
+  <nav class="nav">
     <div class="nav__inner">
-      <a href="#" class="nav__logo">
-        <span class="logo-bracket">[</span>BLODE<span class="logo-bracket">]</span>
-      </a>
-      <ul class="nav__links">
-        <li><a href="#syntax">Syntax</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#terminal">Terminal</a></li>
-        <li><a href="#docs" class="nav__cta">Get Started →</a></li>
-      </ul>
-      <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
+      <span class="nav__logo">blode</span>
+      <span class="nav__badge">early dev</span>
     </div>
   </nav>
 
   <!-- HERO -->
-  <section class="hero" id="hero">
-    <div class="hero__bg-grid" aria-hidden="true"></div>
+  <section class="hero">
     <div class="hero__glow" aria-hidden="true"></div>
 
     <div class="hero__content">
-      <div class="hero__eyebrow">
-        <span class="hero__version">v0.1.0 — alpha</span>
-        <span class="hero__divider">|</span>
-        <span class="hero__tag">system-native language</span>
-      </div>
+      <p class="hero__eyebrow">C++ · Windows · .exe</p>
 
-      <h1 class="hero__title" id="glitch-title" data-text="BLODE">
-        BLODE
-      </h1>
-
-      <p class="hero__tagline">
-        <span class="typed-text" id="typed-tagline"></span><span class="cursor-blink">█</span>
-      </p>
+      <h1 class="hero__title">BLODE</h1>
 
       <p class="hero__sub">
-        No ceremony. No bloat. Blode is pure action — a language built for systems programmers who think in I/O and act in milliseconds.
+        A modern programming language for building standalone<br class="br-desk" />
+        Windows executables — clean syntax, zero bloat.
       </p>
 
-      <div class="hero__actions">
-        <a href="#terminal" class="btn btn--primary">
-          <span class="btn__prefix">$</span> run blode
+      <div class="hero__buttons">
+        <a href="https://github.com/blode-lang/blode" target="_blank" rel="noopener" class="btn btn--ghost">
+          <svg class="btn__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+          </svg>
+          See GitHub
         </a>
-        <a href="#syntax" class="btn btn--ghost">
-          View Syntax →
+        <a href="https://github.com/blode-lang/blode/tree/main/guide" target="_blank" rel="noopener" class="btn btn--primary">
+          Get Started →
         </a>
-      </div>
-
-      <div class="hero__stats">
-        <div class="stat">
-          <span class="stat__val">0.3ms</span>
-          <span class="stat__label">avg startup</span>
-        </div>
-        <div class="stat__sep" aria-hidden="true">//</div>
-        <div class="stat">
-          <span class="stat__val">12kb</span>
-          <span class="stat__label">runtime size</span>
-        </div>
-        <div class="stat__sep" aria-hidden="true">//</div>
-        <div class="stat">
-          <span class="stat__val">act{}</span>
-          <span class="stat__label">execution model</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="hero__code-preview">
-      <div class="code-window">
-        <div class="code-window__bar">
-          <span class="dot dot--red"></span>
-          <span class="dot dot--yellow"></span>
-          <span class="dot dot--green"></span>
-          <span class="code-window__title">hello.bld</span>
-        </div>
-        <div class="code-window__body">
-          <pre class="code-block"><code><span class="c-comment">// hello world in blode</span>
-<span class="c-keyword">#contain</span> <span class="c-string">sys</span>
-
-<span class="c-fn">act</span> <span class="c-name">main</span>() {
-  <span class="c-obj">sys</span>.<span class="c-method">output</span>(<span class="c-string">"hello, raw world"</span>)
-  <span class="c-obj">sys</span>.<span class="c-method">output</span>(<span class="c-string">"blode is alive."</span>)
-}
-
-<span class="c-fn">act</span> <span class="c-name">tick</span>() {
-  <span class="c-keyword">loop</span> <span class="c-num">10</span> {
-    <span class="c-obj">sys</span>.<span class="c-method">wait</span>(<span class="c-num">100</span>)
-    <span class="c-obj">sys</span>.<span class="c-method">output</span>(<span class="c-string">"tick."</span>)
-  }
-}</code></pre>
-        </div>
-      </div>
-    </div>
-
-    <div class="hero__scroll-hint" aria-hidden="true">
-      <span>scroll</span>
-      <div class="scroll-line"></div>
-    </div>
-  </section>
-
-  <!-- SYNTAX SECTION -->
-  <section class="syntax-section" id="syntax">
-    <div class="container">
-      <div class="section-header reveal-up">
-        <span class="section-label">// 01 — language</span>
-        <h2 class="section-title">Syntax that does<br /><em>exactly</em> what it says.</h2>
-      </div>
-
-      <div class="syntax-grid">
-        <!-- Card 1 -->
-        <div class="syntax-card reveal-up" style="--delay: 0s">
-          <div class="syntax-card__label">#contain</div>
-          <div class="syntax-card__desc">Import system modules. No package manager noise — just direct access.</div>
-          <div class="syntax-card__code">
-            <pre><code><span class="c-keyword">#contain</span> <span class="c-string">sys</span>
-<span class="c-keyword">#contain</span> <span class="c-string">net</span>
-<span class="c-keyword">#contain</span> <span class="c-string">fs</span></code></pre>
-          </div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="syntax-card reveal-up" style="--delay: 0.1s">
-          <div class="syntax-card__label">act blocks</div>
-          <div class="syntax-card__desc">Every executable unit is an <code>act</code>. Not a function. Not a method. An action.</div>
-          <div class="syntax-card__code">
-            <pre><code><span class="c-fn">act</span> <span class="c-name">fetch</span>(<span class="c-name">url</span>) {
-  <span class="c-keyword">let</span> <span class="c-name">res</span> = <span class="c-obj">net</span>.<span class="c-method">get</span>(<span class="c-name">url</span>)
-  <span class="c-keyword">return</span> <span class="c-name">res</span>.<span class="c-method">body</span>
-}</code></pre>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="syntax-card reveal-up" style="--delay: 0.2s">
-          <div class="syntax-card__label">sys object</div>
-          <div class="syntax-card__desc">Direct system I/O, timing, and environment — no abstractions in the way.</div>
-          <div class="syntax-card__code">
-            <pre><code><span class="c-obj">sys</span>.<span class="c-method">output</span>(<span class="c-string">"log"</span>)
-<span class="c-obj">sys</span>.<span class="c-method">err</span>(<span class="c-string">"fatal"</span>)
-<span class="c-obj">sys</span>.<span class="c-method">wait</span>(<span class="c-num">200</span>)
-<span class="c-obj">sys</span>.<span class="c-method">exit</span>(<span class="c-num">0</span>)</code></pre>
-          </div>
-        </div>
-
-        <!-- Card 4 — wider showcase -->
-        <div class="syntax-card syntax-card--wide reveal-up" style="--delay: 0.3s">
-          <div class="syntax-card__label">full program</div>
-          <div class="syntax-card__desc">A complete Blode program — system health check in under 15 lines.</div>
-          <div class="syntax-card__code">
-            <pre><code><span class="c-keyword">#contain</span> <span class="c-string">sys</span>
-<span class="c-keyword">#contain</span> <span class="c-string">fs</span>
-
-<span class="c-fn">act</span> <span class="c-name">check</span>(<span class="c-name">path</span>) {
-  <span class="c-keyword">if</span> <span class="c-obj">fs</span>.<span class="c-method">exists</span>(<span class="c-name">path</span>) {
-    <span class="c-obj">sys</span>.<span class="c-method">output</span>(<span class="c-string">"[OK] "</span> + <span class="c-name">path</span>)
-  } <span class="c-keyword">else</span> {
-    <span class="c-obj">sys</span>.<span class="c-method">err</span>(<span class="c-string">"[FAIL] not found: "</span> + <span class="c-name">path</span>)
-  }
-}
-
-<span class="c-fn">act</span> <span class="c-name">main</span>() {
-  <span class="c-name">check</span>(<span class="c-string">"/etc/hosts"</span>)
-  <span class="c-name">check</span>(<span class="c-string">"/var/log/sys"</span>)
-  <span class="c-obj">sys</span>.<span class="c-method">output</span>(<span class="c-string">"check complete."</span>)
-}</code></pre>
-          </div>
-        </div>
       </div>
     </div>
   </section>
 
-  <!-- FEATURES SECTION -->
-  <section class="features-section" id="features">
+  <!-- FEATURES -->
+  <section class="features">
     <div class="container">
-      <div class="section-header reveal-up">
-        <span class="section-label">// 02 — principles</span>
-        <h2 class="section-title">Built on three<br />unbreakable laws.</h2>
+
+      <div class="code-preview reveal">
+        <div class="code-preview__bar">
+          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+          <span class="code-preview__filename">hello.bld</span>
+        </div>
+        <pre class="code-preview__body"><code><span class="ck">#contain</span> <span class="cs">&lt;sysio&gt;</span>
+
+<span class="cf">act</span> <span class="cn">main</span>() {
+    sys.output = <span class="cstr">"Hello from Blode"</span>
+    sys.wait(<span class="cnum">1</span>)
+    sys.output = <span class="cstr">"Done."</span>
+}</code></pre>
       </div>
 
-      <div class="features-grid">
-        <article class="feature-card reveal-up" style="--delay: 0s">
-          <div class="feature-card__icon">
+      <div class="features__grid">
+
+        <article class="feature reveal" style="--d:0s">
+          <div class="feature__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="3"/>
+              <path d="M9 9l3 3-3 3M13 15h2"/>
+            </svg>
+          </div>
+          <h3>Native .exe Output</h3>
+          <p>Every Blode program compiles to a standalone Windows executable. No runtime, no installer — just a file that runs on any Windows machine.</p>
+        </article>
+
+        <article class="feature reveal" style="--d:0.1s">
+          <div class="feature__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
               <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
             </svg>
           </div>
-          <h3 class="feature-card__title">Raw Speed</h3>
-          <p class="feature-card__desc">Blode compiles to lean native bytecode. No GC pauses. No runtime overhead. Your act blocks run at the speed of the machine.</p>
-          <div class="feature-card__metric">
-            <div class="metric-bar">
-              <div class="metric-bar__fill" data-width="97"></div>
-            </div>
-            <span>97% native throughput</span>
-          </div>
+          <h3>Clean Syntax</h3>
+          <p>Built on C++ under the hood, written in a readable action-oriented style. <code>act</code> blocks replace boilerplate. Say what you mean, nothing more.</p>
         </article>
 
-        <article class="feature-card reveal-up" style="--delay: 0.12s">
-          <div class="feature-card__icon">
+        <article class="feature reveal" style="--d:0.2s">
+          <div class="feature__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-              <rect x="2" y="3" width="20" height="14" rx="2"/>
-              <path d="M8 21h8M12 17v4"/>
-              <path d="m9 8 2 2-2 2M13 12h2"/>
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M12 2v3M12 19v3M2 12h3M19 12h3M5.636 5.636l2.122 2.122M16.243 16.243l2.121 2.121M5.636 18.364l2.122-2.121M16.243 7.757l2.121-2.121"/>
             </svg>
           </div>
-          <h3 class="feature-card__title">Action-Logic</h3>
-          <p class="feature-card__desc">Every unit of code is an <code>act</code>. No classes, no decorators, no ceremony. Logic flows through actions — direct, readable, composable.</p>
-          <div class="feature-card__metric">
-            <div class="metric-bar">
-              <div class="metric-bar__fill" data-width="89"></div>
-            </div>
-            <span>89% less boilerplate</span>
-          </div>
+          <h3>System-Direct</h3>
+          <p>The <code>sys</code> object gives direct access to output, input, timing and the terminal — no wrapper layers, no dependency hell.</p>
         </article>
 
-        <article class="feature-card reveal-up" style="--delay: 0.24s">
-          <div class="feature-card__icon">
+        <article class="feature reveal" style="--d:0.3s">
+          <div class="feature__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-              <path d="M2 17l10 5 10-5"/>
-              <path d="M2 12l10 5 10-5"/>
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
             </svg>
           </div>
-          <h3 class="feature-card__title">System-Native</h3>
-          <p class="feature-card__desc">The <code>sys</code> object is a first-class citizen. I/O, timing, signals, and environment are baked in — no third-party wrappers needed.</p>
-          <div class="feature-card__metric">
-            <div class="metric-bar">
-              <div class="metric-bar__fill" data-width="100"></div>
-            </div>
-            <span>Zero runtime dependencies</span>
-          </div>
+          <h3>Growing Fast</h3>
+          <p>Variables, math, file I/O, and graphical windows are on the roadmap. Blode is early — and that means now is the best time to shape it.</p>
         </article>
-      </div>
-    </div>
-  </section>
 
-  <!-- TERMINAL SECTION -->
-  <section class="terminal-section" id="terminal">
-    <div class="container">
-      <div class="section-header reveal-up">
-        <span class="section-label">// 03 — live demo</span>
-        <h2 class="section-title">Watch Blode<br />do work.</h2>
-      </div>
-
-      <div class="terminal-wrapper reveal-up">
-        <div class="terminal">
-          <div class="terminal__bar">
-            <div class="terminal__dots">
-              <span class="dot dot--red"></span>
-              <span class="dot dot--yellow"></span>
-              <span class="dot dot--green"></span>
-            </div>
-            <div class="terminal__title">blode — system check</div>
-            <div class="terminal__controls">
-              <button class="terminal__btn" id="terminal-run" aria-label="Run simulation">▶ Run</button>
-              <button class="terminal__btn" id="terminal-reset" aria-label="Reset terminal">↺ Reset</button>
-            </div>
-          </div>
-          <div class="terminal__screen" id="terminal-screen" role="log" aria-live="polite">
-            <div class="terminal__output" id="terminal-output"></div>
-            <div class="terminal__input-line">
-              <span class="terminal__prompt">blode@sys:~$</span>
-              <span class="terminal__input-text" id="terminal-input-display"></span>
-              <span class="terminal__cursor" id="terminal-cursor">█</span>
-            </div>
-          </div>
-        </div>
-        <div class="terminal__annotation">
-          <p>Scroll down or click <strong>Run</strong> to simulate a live Blode execution — package init, type checking, and system validation.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA SECTION -->
-  <section class="cta-section" id="docs">
-    <div class="cta-section__glow" aria-hidden="true"></div>
-    <div class="container">
-      <div class="cta-inner reveal-up">
-        <span class="section-label">// 04 — start</span>
-        <h2 class="cta-title">Ready to act?</h2>
-        <p class="cta-sub">Blode is in alpha. Get early access, shape the language, and be first to act.</p>
-        <div class="cta-install">
-          <div class="install-block">
-            <span class="install-prompt">$</span>
-            <code class="install-cmd" id="install-cmd">curl -fsSL blode.dev/install | sh</code>
-            <button class="install-copy" id="copy-btn" aria-label="Copy install command">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <rect x="9" y="9" width="13" height="13" rx="2"/>
-                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-              </svg>
-              <span id="copy-text">copy</span>
-            </button>
-          </div>
-        </div>
-        <div class="cta-actions">
-          <a href="#" class="btn btn--primary btn--large">Request Alpha Access</a>
-          <a href="#" class="btn btn--ghost btn--large">Read the Spec →</a>
-        </div>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer class="footer">
-    <div class="container">
-      <div class="footer__inner">
-        <div class="footer__brand">
-          <span class="logo-bracket">[</span>BLODE<span class="logo-bracket">]</span>
-          <p>Act. Execute. Own.</p>
-        </div>
-        <div class="footer__links">
-          <span>MIT License</span>
-          <span class="footer__sep">|</span>
-          <a href="#">GitHub</a>
-          <span class="footer__sep">|</span>
-          <a href="#">Docs</a>
-          <span class="footer__sep">|</span>
-          <a href="#">Discord</a>
-        </div>
-        <div class="footer__sig">
-          <span>Built in <span class="accent">blode</span> (eventually)</span>
-        </div>
-      </div>
+    <div class="container footer__inner">
+      <span class="footer__logo">blode</span>
+      <span class="footer__note">Early development · Solo project · <a href="https://github.com/blode-lang/blode" target="_blank" rel="noopener">GitHub ↗</a></span>
     </div>
   </footer>
 
   <script src="script.js"></script>
 </body>
-    </html>
+</html>
