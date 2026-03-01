@@ -2,18 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blode — Native Windows Programs, Simply.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>Blode</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <div class="grain" aria-hidden="true"></div>
 
-  <!-- NAV -->
   <nav class="nav">
     <div class="nav__inner">
       <span class="nav__logo">blode</span>
@@ -21,20 +20,12 @@
     </div>
   </nav>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="hero__glow" aria-hidden="true"></div>
-
     <div class="hero__content">
       <p class="hero__eyebrow">C++ · Windows · .exe</p>
-
       <h1 class="hero__title">BLODE</h1>
-
-      <p class="hero__sub">
-        A modern programming language for building standalone<br class="br-desk" />
-        Windows executables — clean syntax, zero bloat.
-      </p>
-
+      <p class="hero__sub">A modern language for building standalone Windows executables — clean syntax, zero bloat.</p>
       <div class="hero__buttons">
         <a href="https://github.com/blode-lang/blode" target="_blank" rel="noopener" class="btn btn--ghost">
           <svg class="btn__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -49,24 +40,8 @@
     </div>
   </section>
 
-  <!-- FEATURES -->
   <section class="features">
     <div class="container">
-
-      <div class="code-preview reveal">
-        <div class="code-preview__bar">
-          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-          <span class="code-preview__filename">hello.bld</span>
-        </div>
-        <pre class="code-preview__body"><code><span class="ck">#contain</span> <span class="cs">&lt;sysio&gt;</span>
-
-<span class="cf">act</span> <span class="cn">main</span>() {
-    sys.output = <span class="cstr">"Hello from Blode"</span>
-    sys.wait(<span class="cnum">1</span>)
-    sys.output = <span class="cstr">"Done."</span>
-}</code></pre>
-      </div>
-
       <div class="features__grid">
 
         <article class="feature reveal" style="--d:0s">
@@ -77,7 +52,7 @@
             </svg>
           </div>
           <h3>Native .exe Output</h3>
-          <p>Every Blode program compiles to a standalone Windows executable. No runtime, no installer — just a file that runs on any Windows machine.</p>
+          <p>Every Blode program compiles to a standalone Windows executable. No runtime, no installer — one file, runs anywhere.</p>
         </article>
 
         <article class="feature reveal" style="--d:0.1s">
@@ -87,7 +62,7 @@
             </svg>
           </div>
           <h3>Clean Syntax</h3>
-          <p>Built on C++ under the hood, written in a readable action-oriented style. <code>act</code> blocks replace boilerplate. Say what you mean, nothing more.</p>
+          <p>Built on C++ under the hood, written in a readable action-oriented style. <code>act</code> blocks replace verbose boilerplate.</p>
         </article>
 
         <article class="feature reveal" style="--d:0.2s">
@@ -98,7 +73,7 @@
             </svg>
           </div>
           <h3>System-Direct</h3>
-          <p>The <code>sys</code> object gives direct access to output, input, timing and the terminal — no wrapper layers, no dependency hell.</p>
+          <p>The <code>sys</code> object gives direct access to output, input and timing — no wrapper layers, no extra dependencies.</p>
         </article>
 
         <article class="feature reveal" style="--d:0.3s">
@@ -108,18 +83,23 @@
             </svg>
           </div>
           <h3>Growing Fast</h3>
-          <p>Variables, math, file I/O, and graphical windows are on the roadmap. Blode is early — and that means now is the best time to shape it.</p>
+          <p>Variables, math, file I/O and graphical windows are on the roadmap. Blode is early — the best time to get involved.</p>
         </article>
 
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer__inner">
-      <span class="footer__logo">blode</span>
-      <span class="footer__note">Early development · Solo project · <a href="https://github.com/blode-lang/blode" target="_blank" rel="noopener">GitHub ↗</a></span>
+      <span class="footer__copy">© 2026 Blode. All rights reserved.</span>
+      <div class="footer__links">
+        <a href="https://github.com/blode-lang/blode" target="_blank" rel="noopener">GitHub</a>
+        <span class="footer__sep">·</span>
+        <a href="https://github.com/blode-lang/blode/blob/main/LICENSE" target="_blank" rel="noopener">License</a>
+        <span class="footer__sep">·</span>
+        <a href="https://github.com/blode-lang/blode/tree/main/guide" target="_blank" rel="noopener">Docs</a>
+      </div>
     </div>
   </footer>
 
