@@ -30,7 +30,7 @@ act main() {
     sys.output = "Hello from Blode";
 }
 ```
-Clear Screen and Show Message
+## Clear Terminal and Show Message
 
 ```blode
 #contain <sysio>
@@ -40,25 +40,15 @@ act main() {
     sys.output = "Terminal cleaned";
 }
 ```
-Wait for Keypress
-```blode
-#contain <sysio>
 
-act main() {
-    sys.clear();
-    sys.output = "Press any key to close...";
-    sys.wait();
-}
-```
-Combined Example
+## Combined Example
 ```blode
 #contain <sysio>
 
 act main() {
     sys.clear();
     sys.output = "Blode console test";
-    sys.output = "Window stays open until you press a key";
-    sys.wait();
+    sys.wait(1);
 }
 ```
 # What’s Next
