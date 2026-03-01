@@ -1,0 +1,29 @@
+#contain <sysio>
+
+act main() {
+    sys.clear();
+    sys.output = "C:\Users\Admin> pip install ollama";
+    sys.wait(1);
+    sys.output = "Collecting ollama";
+    sys.wait(1);
+    sys.output = "  Downloading ollama-0.1.7-py3-none-any.whl (9.3 kB)";
+    sys.output = "Collecting httpx<0.28.0,>=0.27.0 (from ollama)";
+    sys.wait(1);
+    sys.output = "  Downloading httpx-0.27.0-py3-none-any.whl (75 kB)";
+    sys.output = "Installing collected packages: httpx, ollama";
+    sys.wait(2);
+    sys.output = "Successfully installed ollama-0.1.7";
+    sys.output = "";
+    sys.output = "C:\Users\Admin> ollama run llama3";
+    sys.wait(1);
+    sys.output = "pulling manifest";
+    sys.output = "pulling 6a0746a1ec1a... 100% [###################] 4.7 GB";
+    sys.wait(4);
+    sys.output = "verifying sha256 digest";
+    sys.output = "writing manifest";
+    sys.output = "removing unused layers";
+    sys.output = "success";
+    sys.wait(1);
+    sys.output = ">>> Connection established. Ollama is ready.";
+    sys.input = "Press Enter to finish setup...";
+}
