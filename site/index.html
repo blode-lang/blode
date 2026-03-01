@@ -3,37 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blode Language | Direct Action Programming</title>
-    <style>
-        :root {
-            --bg-color: #0a0a0a;
-            --accent-color: #00ff41;
-            --secondary-accent: #00ccff;
-            --text-main: #e0e0e0;
-            --text-dim: #888;
-            --card-bg: #141414;
-            --terminal-header: #333;
-            --code-bg: #000;
-        }
+    <title>Blode | The Action-Oriented Language</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <div class="scanline"></div>
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+    <header>
+        <div class="hero-content">
+            <h1 class="glitch" data-text="BLODE">BLODE</h1>
+            <p class="hero-subtitle">High-speed terminal automation and system-level scripting with a clean, action-based syntax.</p>
+            <div class="cta-group">
+                <a href="https://github.com/blode-lang/blode" class="btn btn-primary">Get Started</a>
+                <a href="#features" class="btn btn-secondary">Explore Features</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">↓</div>
+    </header>
 
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
+    <section id="features" class="reveal">
+        <h2 class="section-label">01. Capabilities</h2>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <div class="icon">⚡</div>
+                <h3>Zero Overhead</h3>
+                <p>Blode is built to execute actions immediately. No bloated runtimes, just pure system interaction.</p>
+            </div>
+            <div class="feature-item">
+                <div class="icon">🛠</div>
+                <h3>Native System I/O</h3>
+                <p>Built-in <code>sys</code> object for terminal manipulation, time management, and user input handling.</p>
+            </div>
+            <div class="feature-item">
+                <div class="icon">📦</div>
+                <h3>Modular Core</h3>
+                <p>Use <code>#contain</code> to load only what you need. Keep your binaries small and your execution fast.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="reveal bg-alt">
+        <h2 class="section-label">02. Logic Flow</h2>
+        <div class="showcase">
+            <div class="showcase-info">
+                <h2>The <span>act</span> Syntax</h2>
+                <p>Forget complex class hierarchies. Blode uses <strong>Actions</strong>. It defines exactly what should happen and when.</p>
+                <ul class="feature-list">
+                    <li>Explicit entry points with <code>act main()</code></li>
+                    <li>Property-based system calls</li>
+                    <li>Synchronous timing control</li>
+                </ul>
+            </div>
+            <div class="showcase-visual">
+                <div class="terminal-container">
+                    <div class="terminal-bar">
+                        <div class="btns"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+                        <div class="title">example.bld</div>
+                    </div>
+                    <div class="terminal-content">
+                        <div class="line"><span class="k">#contain</span> <span class="s">&lt;sysio&gt;</span></div>
+                        <div class="line"></div>
+                        <div class="line"><span class="k">act</span> <span class="f">main</span>() {</div>
+                        <div class="line">&nbsp;&nbsp;<span class="p">sys.clear</span>();</div>
+                        <div class="line">&nbsp;&nbsp;<span class="p">sys.output</span> = <span class="s">"System active."</span>;</div>
+                        <div class="line">&nbsp;&nbsp;<span class="p">sys.wait</span>(<span class="n">1.5</span>);</div>
+                        <div class="line">&nbsp;&nbsp;<span class="p">sys.input</span> = <span class="s">"Username:"</span>;</div>
+                        <div class="line">}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reveal">
+        <h2 class="section-label">03. Live Execution</h2>
+        <div class="simulation-wrapper">
+            <div class="simulation-text">
+                <h3>Automation Simplified</h3>
+                <p>Blode is the perfect choice for simulating complex CLI workflows like package managers or system diagnostics.</p>
+            </div>
+            <div class="terminal-container simulation">
+                <div class="terminal-bar">
+                    <div class="title">blode_runtime.exe</div>
+                </div>
+                <div id="runtime-box" class="terminal-content console-output">
+                    <span class="cursor">_</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="logo-small">BLODE</div>
+            <p>Designed for the next generation of solo developers.</p>
+            <div class="socials">
+                <a href="https://github.com/blode-lang/blode">GitHub</a>
+                <a href="#">Documentation</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
             background: #050505;
         }
         ::-webkit-scrollbar-thumb {
