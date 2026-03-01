@@ -1,0 +1,20 @@
+#contain <sysio>
+
+act main() {
+    sys.clear();
+    sys.output = "C:\Users\Admin> pip install pandas";
+    sys.wait(1);
+    sys.output = "Collecting pandas";
+    sys.wait(2);
+    sys.output = "  Downloading pandas-2.1.1-cp310-cp310-win_amd64.whl (10.7 MB)";
+    sys.output = "Collecting numpy>=1.22.4 (from pandas)";
+    sys.wait(1);
+    sys.output = "  Downloading numpy-1.26.0-cp310-cp310-win_amd64.whl (15.8 MB)";
+    sys.output = "Collecting python-dateutil>=2.8.2 (from pandas)";
+    sys.output = "Collecting pytz>=2020.1 (from pandas)";
+    sys.wait(2);
+    sys.output = "Installing collected packages: numpy, python-dateutil, pytz, pandas";
+    sys.wait(3);
+    sys.output = "Successfully installed pandas-2.1.1 numpy-1.26.0";
+    sys.input = "Process finished. Press Enter to exit.";
+}
