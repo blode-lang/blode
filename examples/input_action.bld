@@ -1,0 +1,5 @@
+#contain <sysio>
+
+act main() {
+    sys.input = "How are you?";
+    }
