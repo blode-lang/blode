@@ -1,0 +1,7 @@
+#contain <sysio>
+
+act main() {
+    sys.clear();
+    sys.wait(1);
+    sys.output = "Hello, World!";
+}
