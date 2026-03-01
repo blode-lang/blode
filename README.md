@@ -55,11 +55,17 @@ act main() {
 # What’s Next
 ## Planned improvements:
 • Basic math and logic
+
 • Variables and simple types
+
 • Better string handling
+
 • Eventually, graphical windows and UI    elements
+
 • Cleaner build and run process
+
 • For now, Blode is about experimenting   with syntax and creating small,          standalone Windows executables.
+
 # How to Try
 Currently, blode is in development and will be will soon available for download.
 # Planned future commands:
@@ -68,7 +74,10 @@ blode run example.bld
 blode build example.bld
 ```
 # Support
-Since this is a solo project, any interest helps:
+Since this is a `solo project`, any interest helps:
+
 ⭐ Star the repository
+
 💬 Share the kinds of programs you’d like to create
-Thank you for checking out Blode!
+
+### Thank you for checking out Blode!
