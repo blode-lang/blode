@@ -2,6 +2,7 @@
 
 act main() {
     sys.clear();
+    sys.output = "Hello, World!;
     sys.wait(1);
-    sys.output = "Hello, World!";
+    sys.input = "How are you?";
 }
