@@ -3,34 +3,436 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blode Language | Official Site</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Blode Language | Direct Action Programming</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --accent-color: #00ff41;
+            --secondary-accent: #00ccff;
+            --text-main: #e0e0e0;
+            --text-dim: #888;
+            --card-bg: #141414;
+            --terminal-header: #333;
+            --code-bg: #000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050505;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #222;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-color);
+        }
+
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at center, #111 0%, #0a0a0a 100%);
+            position: relative;
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(0, 255, 65, 0.03) 1px, transparent 1px), 
+                              linear-gradient(90deg, rgba(0, 255, 65, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+        }
+
+        .hero-logo {
+            font-size: 5rem;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -2px;
+            margin-bottom: 10px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .hero-logo span {
+            color: var(--accent-color);
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-dim);
+            max-width: 600px;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease-out 0.3s backwards;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            animation: fadeInUp 1s ease-out 0.6s backwards;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            background-color: #00cc33;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 65, 0.3);
+        }
+
+        .btn-secondary {
+            border: 1px solid #444;
+            color: #fff;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-color);
+            background: rgba(0, 255, 65, 0.05);
+        }
+
+        section {
+            padding: 100px 10%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .grid-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid #222;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-color);
+        }
+
+        .feature-card h3 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .terminal-window {
+            background: var(--code-bg);
+            border-radius: 8px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            margin-top: 50px;
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+
+        .terminal-header {
+            background: var(--terminal-header);
+            padding: 12px 20px;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .red { background: #ff5f56; }
+        .yellow { background: #ffbd2e; }
+        .green { background: #27c93f; }
+        .terminal-title { margin-left: 10px; font-size: 0.8rem; color: #aaa; font-family: monospace; }
+
+        .terminal-body {
+            padding: 25px;
+            font-family: 'Fira Code', 'Courier New', monospace;
+            font-size: 1rem;
+            color: #dcdccc;
+            overflow-x: auto;
+        }
+
+        .keyword { color: #f0dfaf; font-weight: bold; }
+        .function { color: #8cd0d3; }
+        .string { color: #cc9393; }
+        .comment { color: #7f9f7f; font-style: italic; }
+        .property { color: #93e0e3; }
+
+        .showcase {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .showcase-text { flex: 1; min-width: 300px; }
+        .showcase-code { flex: 1.2; min-width: 300px; }
+
+        footer {
+            padding: 50px 10%;
+            border-top: 1px solid #222;
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            padding: 60px 0;
+            background: #0d0d0d;
+            border-top: 1px solid #1a1a1a;
+            border-bottom: 1px solid #1a1a1a;
+            margin-bottom: 100px;
+        }
+
+        .stat-item h2 {
+            font-size: 3rem;
+            color: var(--accent-color);
+        }
+
+        .stat-item p {
+            color: var(--text-dim);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-logo { font-size: 3rem; }
+            .section-title { font-size: 2rem; }
+            .showcase { flex-direction: column; }
+            section { padding: 60px 5%; }
+        }
+    </style>
 </head>
 <body>
-    <div class="terminal">
-        <header>
-            <span class="dot red"></span>
-            <span class="dot yellow"></span>
-            <span class="dot green"></span>
-            <p>blode.exe</p>
-        </header>
-        <section class="content">
-            <h1>🥬 Blode Programming Language</h1>
-            <p class="subtitle">Simple. Direct. Action-oriented.</p>
-            
-            <div class="code-box">
-                <span class="comment">// Your first Blode script</span><br>
-                <span class="keyword">#contain</span> &lt;sysio&gt;<br><br>
-                <span class="keyword">act</span> main() {<br>
-                &nbsp;&nbsp;sys.output = <span class="string">"Hello, World!"</span>;<br>
-                }
-            </div>
 
-            <nav>
-                <a href="../docs/about.md">Documentation</a>
-                <a href="https://github.com/blode-lang/blode">GitHub</a>
-            </nav>
-        </section>
+    <header>
+        <h1 class="hero-logo">BL<span>ODE</span></h1>
+        <p class="hero-subtitle">The minimal, action-oriented programming language for rapid system prototyping and automation.</p>
+        <div class="cta-buttons">
+            <a href="https://github.com/blode-lang/blode" class="btn btn-primary">View on GitHub</a>
+            <a href="#about" class="btn btn-secondary">Learn More</a>
+        </div>
+    </header>
+
+    <div class="stats-container">
+        <div class="stat-item">
+            <h2>Fast</h2>
+            <p>Execution</p>
+        </div>
+        <div class="stat-item">
+            <h2>Clean</h2>
+            <p>Syntax</p>
+        </div>
+        <div class="stat-item">
+            <h2>Solo</h2>
+            <p>Engineered</p>
+        </div>
     </div>
+
+    <section id="about" class="reveal">
+        <h2 class="section-title">Why Blode?</h2>
+        <div class="grid-features">
+            <div class="feature-card">
+                <h3>Direct Action</h3>
+                <p>Logic is encapsulated in 'actions'. No unnecessary boilerplate, just direct entry points for your system scripts.</p>
+            </div>
+            <div class="feature-card">
+                <h3>System Oriented</h3>
+                <p>The <code>sys</code> object provides native access to terminal controls, timing, and I/O out of the box.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Built-in Simulation</h3>
+                <p>Perfect for creating realistic CLI mockups and automated installation simulations with millisecond precision.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="reveal">
+        <div class="showcase">
+            <div class="showcase-text">
+                <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Human Readable. <br><span style="color:var(--secondary-accent)">Machine Precise.</span></h2>
+                <p style="color: var(--text-dim); margin-bottom: 20px;">Blode removes the friction between an idea and a working terminal script. By utilizing the <code>#contain</code> directive, you get instant access to powerful system primitives.</p>
+                <p>Designed for solo developers who need to move fast without fighting complex syntax rules.</p>
+            </div>
+            <div class="showcase-code">
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <div class="dot red"></div>
+                        <div class="dot yellow"></div>
+                        <div class="dot green"></div>
+                        <div class="terminal-title">demo_program.bld</div>
+                    </div>
+                    <div class="terminal-body">
+                        <span class="keyword">#contain</span> &lt;sysio&gt;<br><br>
+                        <span class="keyword">act</span> main() {<br>
+                        &nbsp;&nbsp;<span class="property">sys.clear</span>();<br>
+                        &nbsp;&nbsp;<span class="property">sys.output</span> = <span class="string">"Deploying Blode..."</span>;<br>
+                        &nbsp;&nbsp;<span class="property">sys.wait</span>(<span class="function">2</span>);<br>
+                        &nbsp;&nbsp;<span class="property">sys.output</span> = <span class="string">"Success!"</span>;<br>
+                        &nbsp;&nbsp;<span class="property">sys.input</span> = <span class="string">"Press Enter to exit."</span>;<br>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reveal" style="background: var(--card-bg); border-radius: 20px; margin-top: 50px;">
+        <h2 class="section-title">The Installation Flow</h2>
+        <p style="text-align: center; color: var(--text-dim); max-width: 800px; margin: 0 auto 50px;">Blode excels at creating interactive command-line experiences. See how simple it is to simulate complex package installations.</p>
+        <div class="terminal-window" style="max-width: 800px; margin: 0 auto;">
+            <div class="terminal-header" style="background: #222;">
+                <span class="terminal-title">output_preview.log</span>
+            </div>
+            <div class="terminal-body" id="typing-demo" style="height: 250px; font-size: 0.9rem;">
+                <span class="comment">// Run the script to see the magic...</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="reveal">
+        <h2 class="section-title">Language Specs</h2>
+        <div class="grid-features" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+            <div style="border-left: 2px solid var(--accent-color); padding-left: 20px;">
+                <h4 style="margin-bottom: 10px;">Keywords</h4>
+                <p style="font-size: 0.85rem; color: var(--text-dim);">act, main, #contain, return, if, while</p>
+            </div>
+            <div style="border-left: 2px solid var(--secondary-accent); padding-left: 20px;">
+                <h4 style="margin-bottom: 10px;">Sys Properties</h4>
+                <p style="font-size: 0.85rem; color: var(--text-dim);">output, input, wait, clear, error</p>
+            </div>
+            <div style="border-left: 2px solid #fff; padding-left: 20px;">
+                <h4 style="margin-bottom: 10px;">File Type</h4>
+                <p style="font-size: 0.85rem; color: var(--text-dim);">Source: .bld<br>Binary: compiled executable</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Blode Language Project. Engineered for the future of scripting.</p>
+        <p style="margin-top: 10px; font-size: 0.7rem; opacity: 0.5;">Syntax highlighter and compiler v0.1.0-alpha</p>
+    </footer>
+
+    <script>
+        // Scroll Animation
+        window.addEventListener('scroll', reveal);
+        function reveal() {
+            var reveals = document.querySelectorAll('.reveal');
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var revealTop = reveals[i].getBoundingClientRect().top;
+                var revealPoint = 150;
+                if (revealTop < windowHeight - revealPoint) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+
+        // Typing Simulation for the installation flow
+        const demoLines = [
+            "> Initializing Blode compiler...",
+            "> Loading <sysio>...",
+            "> Connection established.",
+            "> sys.output = 'Fetching updates...'",
+            "> Downloading packages [##########] 100%",
+            "> Installation complete."
+        ];
+        
+        const demoElement = document.getElementById('typing-demo');
+        let lineIdx = 0;
+
+        function typeEffect() {
+            if (lineIdx < demoLines.length) {
+                const p = document.createElement('p');
+                p.style.marginBottom = "5px";
+                p.textContent = demoLines[lineIdx];
+                demoElement.appendChild(p);
+                lineIdx++;
+                setTimeout(typeEffect, 1200);
+            }
+        }
+        
+        // Start typing effect when the section is visible
+        const observer = new IntersectionObserver((entries) => {
+            if(entries[0].isIntersecting) {
+                demoElement.innerHTML = '';
+                typeEffect();
+                observer.unobserve(entries[0].target);
+            }
+        });
+        observer.observe(demoElement);
+
+        // Header mouse tracking effect
+        document.querySelector('header').addEventListener('mousemove', (e) => {
+            const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+            const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+            document.querySelector('.hero-logo').style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+    </script>
 </body>
-</html>
+    </html>
+    
