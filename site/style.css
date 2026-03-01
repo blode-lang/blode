@@ -1,108 +1,343 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-  <title>Blode</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
+:root {
+  --bg:        #07090c;
+  --bg-card:   #0e1218;
+  --border:    rgba(255,255,255,0.07);
+  --green:     #00ff88;
+  --green-dim: rgba(0,255,136,0.07);
+  --cyan:      #00d4ff;
+  --text:      #e4eaf2;
+  --muted:     #516070;
+  --mono:      'DM Mono', monospace;
+  --sans:      'Inter', sans-serif;
+  --display:   'Bebas Neue', sans-serif;
+  --ease:      cubic-bezier(0.2, 0, 0, 1);
+}
 
-  <div class="grain" aria-hidden="true"></div>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  <nav class="nav">
-    <div class="nav__inner">
-      <span class="nav__logo">blode</span>
-      <span class="nav__badge">early dev</span>
-    </div>
-  </nav>
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--green) var(--bg);
+}
 
-  <section class="hero">
-    <div class="hero__glow" aria-hidden="true"></div>
-    <div class="hero__content">
-      <p class="hero__eyebrow">C++ · Windows · .exe</p>
-      <h1 class="hero__title">BLODE</h1>
-      <p class="hero__sub">A modern language for building standalone Windows executables — clean syntax, zero bloat.</p>
-      <div class="hero__buttons">
-        <a href="https://github.com/blode-lang/blode" target="_blank" rel="noopener" class="btn btn--ghost">
-          <svg class="btn__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
-          </svg>
-          See GitHub
-        </a>
-        <a href="https://github.com/blode-lang/blode/tree/main/guide" target="_blank" rel="noopener" class="btn btn--primary">
-          Get Started →
-        </a>
-      </div>
-    </div>
-  </section>
+::-webkit-scrollbar       { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--green); border-radius: 3px; }
 
-  <section class="features">
-    <div class="container">
-      <div class="features__grid">
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+  -webkit-user-select: none;
+}
 
-        <article class="feature reveal" style="--d:0s">
-          <div class="feature__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-              <rect x="3" y="3" width="18" height="18" rx="3"/>
-              <path d="M9 9l3 3-3 3M13 15h2"/>
-            </svg>
-          </div>
-          <h3>Native .exe Output</h3>
-          <p>Every Blode program compiles to a standalone Windows executable. No runtime, no installer — one file, runs anywhere.</p>
-        </article>
+a { color: inherit; text-decoration: none; }
 
-        <article class="feature reveal" style="--d:0.1s">
-          <div class="feature__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-              <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
-            </svg>
-          </div>
-          <h3>Clean Syntax</h3>
-          <p>Built on C++ under the hood, written in a readable action-oriented style. <code>act</code> blocks replace verbose boilerplate.</p>
-        </article>
+code {
+  font-family: var(--mono);
+  font-size: 0.85em;
+  color: var(--green);
+  background: var(--green-dim);
+  padding: 1px 5px;
+  border-radius: 3px;
+}
 
-        <article class="feature reveal" style="--d:0.2s">
-          <div class="feature__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-              <circle cx="12" cy="12" r="3"/>
-              <path d="M12 2v3M12 19v3M2 12h3M19 12h3M5.636 5.636l2.122 2.122M16.243 16.243l2.121 2.121M5.636 18.364l2.122-2.121M16.243 7.757l2.121-2.121"/>
-            </svg>
-          </div>
-          <h3>System-Direct</h3>
-          <p>The <code>sys</code> object gives direct access to output, input and timing — no wrapper layers, no extra dependencies.</p>
-        </article>
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
 
-        <article class="feature reveal" style="--d:0.3s">
-          <div class="feature__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-            </svg>
-          </div>
-          <h3>Growing Fast</h3>
-          <p>Variables, math, file I/O and graphical windows are on the roadmap. Blode is early — the best time to get involved.</p>
-        </article>
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px;
+  animation: grain-shift 0.4s steps(2) infinite;
+}
 
-      </div>
-    </div>
-  </section>
+@keyframes grain-shift {
+  0%   { background-position: 0 0; }
+  50%  { background-position: 60px 30px; }
+  100% { background-position: 0 0; }
+}
 
-  <footer class="footer">
-    <div class="container footer__inner">
-      <span class="footer__copy">© 2025 Blode. All rights reserved.</span>
-      <div class="footer__links">
-        <a href="https://github.com/blode-lang/blode" target="_blank" rel="noopener">GitHub</a>
-        <span class="footer__sep">·</span>
-        <a href="https://github.com/blode-lang/blode/blob/main/LICENSE" target="_blank" rel="noopener">License</a>
-        <span class="footer__sep">·</span>
-        <a href="https://github.com/blode-lang/blode/tree/main/guide" target="_blank" rel="noopener">Docs</a>
-      </div>
-    </div>
-  </footer>
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  border-bottom: 1px solid var(--border);
+  background: rgba(7,9,12,0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
 
-  <script src="script.js"></script>
-</body>
-</html>
+.nav__inner {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nav__logo {
+  font-family: var(--mono);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--green);
+  letter-spacing: 0.1em;
+}
+
+.nav__badge {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  padding: 1px 7px;
+  border-radius: 20px;
+  letter-spacing: 0.06em;
+}
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 56px 2rem 0;
+  overflow: hidden;
+}
+
+.hero__glow {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 500px;
+  background: radial-gradient(ellipse, rgba(0,255,136,0.09) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  animation: heroIn 0.9s var(--ease) both;
+}
+
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero__eyebrow {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--green);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.hero__title {
+  font-family: var(--display);
+  font-size: clamp(7rem, 20vw, 16rem);
+  line-height: 0.88;
+  letter-spacing: 0.03em;
+  color: var(--text);
+  animation: titlePulse 8s ease-in-out infinite;
+}
+
+@keyframes titlePulse {
+  0%, 92%, 100% { text-shadow: none; }
+  93%   { text-shadow: -3px 0 var(--cyan), 3px 0 var(--green); }
+  94%   { text-shadow: none; }
+  96%   { text-shadow: 2px 0 var(--green); }
+  97%   { text-shadow: none; }
+}
+
+.hero__sub {
+  font-size: 1.05rem;
+  color: var(--muted);
+  max-width: 460px;
+  line-height: 1.75;
+}
+
+.hero__buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.6rem;
+  font-family: var(--mono);
+  font-size: 0.88rem;
+  font-weight: 500;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease), background 0.2s var(--ease), color 0.2s var(--ease), border-color 0.2s var(--ease);
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.btn:hover  { transform: translateY(-2px); }
+.btn:active { transform: scale(0.97); }
+
+.btn--primary {
+  background: var(--green);
+  color: #060a07;
+  font-weight: 600;
+}
+
+.btn--primary:hover {
+  box-shadow: 0 0 28px rgba(0,255,136,0.35);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.btn--ghost:hover {
+  border-color: rgba(0,255,136,0.25);
+  color: var(--green);
+  box-shadow: 0 0 20px rgba(0,255,136,0.08);
+}
+
+.btn__icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.features {
+  padding: 7rem 0 6rem;
+  border-top: 1px solid var(--border);
+}
+
+.features__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.feature {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 2rem 1.75rem;
+  transition: border-color 0.25s var(--ease), transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+
+.feature:hover {
+  border-color: rgba(0,255,136,0.18);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+}
+
+.feature__icon {
+  width: 36px;
+  height: 36px;
+  color: var(--green);
+  margin-bottom: 1.1rem;
+  opacity: 0.85;
+}
+
+.feature__icon svg { width: 100%; height: 100%; }
+
+.feature h3 {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.feature p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
+  transition-delay: var(--d, 0s);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 1.75rem 0;
+}
+
+.footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.footer__copy {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.footer__links {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.footer__links a {
+  color: var(--muted);
+  transition: color 0.2s;
+}
+
+.footer__links a:hover { color: var(--green); }
+
+.footer__sep { opacity: 0.4; }
+
+@media (max-width: 600px) {
+  .features__grid { grid-template-columns: 1fr; }
+  .hero__title { font-size: clamp(5rem, 25vw, 8rem); }
+  .footer__inner { flex-direction: column; align-items: flex-start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
