@@ -13,7 +13,7 @@ At the moment, the only available functions are:
 
 - `sys.output` – prints text to the console  
 - `sys.clear` – clears the terminal screen  
-- `sys.wait` – waits for a keypress to keep the window open
+- `sys.wait` – waits for the next action, example `sys.wait(1)` is waiiting 1 second till the next action
 
 Everything else (math, logic, variables, files, graphics, sound) is not implemented yet.
 
