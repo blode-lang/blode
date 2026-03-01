@@ -1,0 +1,14 @@
+#contain <sysio>
+
+act main() {
+    sys.clear();
+    sys.output = "C:\Users\Admin> pip install requests";
+    sys.wait(1);
+    sys.output = "Collecting requests";
+    sys.wait(1);
+    sys.output = "  Downloading requests-2.31.0-py3-none-any.whl (62 kB)";
+    sys.output = "Installing collected packages: requests";
+    sys.wait(2);
+    sys.output = "Successfully installed requests-2.31.0";
+    sys.input = "Press Enter to exit...";
+}
