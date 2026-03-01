@@ -1,14 +1,11 @@
-/* BLODE — script.js */
 'use strict';
 
-/* Reveal on scroll */
 const observer = new IntersectionObserver(
   entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }),
   { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
 );
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-/* Button ripple */
 document.querySelectorAll('.btn').forEach(btn => {
   btn.addEventListener('click', e => {
     const r = btn.getBoundingClientRect();
