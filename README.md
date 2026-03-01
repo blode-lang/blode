@@ -14,8 +14,9 @@ At the moment, the only available functions are:
 - `sys.output` – prints text to the console  
 - `sys.clear` – clears the terminal screen  
 - `sys.wait` – waits for the next action, example `sys.wait(1)` is waiiting 1 second till the next action
+- `sys.input` - user can type something
 
-Everything else (math, logic, variables, files, graphics, sound) is not implemented yet.
+Everything else (math, variables, files, graphics, sound) is not implemented yet.
 
 ---
 
