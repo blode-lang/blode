@@ -1,1 +1,5 @@
+#contain <sysio>
 
+act main() {
+    sys.output = "Hello, World!";
+}
