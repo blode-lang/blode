@@ -1,128 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blode — Native Windows Language</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blode | Eine Sprache, die mit dir denkt</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <nav>
-    <div class="nav-inner">
-      <span class="nav-logo">Blode</span>
-      <a class="btn-ghost" href="https://github.com/blode-lang/blode" target="_blank" rel="noopener">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-        GitHub
-      </a>
-    </div>
-  </nav>
+    <header>
+        <nav>
+            <div class="logo">Blode<span>.</span></div>
+            <div class="links">
+                <a href="https://github.com/blode-lang/blode">GitHub</a>
+                <a href="#" class="btn-docs">Dokumentation</a>
+            </div>
+        </nav>
+    </header>
 
-  <header class="hero">
-    <div class="hero-inner">
-      <div>
-        <div class="badge">Early Development</div>
-        <h1>Build native Windows apps<br><em>without the overhead.</em></h1>
-        <p class="hero-sub">Blode is a C++-based language built for one purpose: creating efficient, standalone Windows executables with a clean, direct syntax.</p>
-        <div class="hero-actions">
-          <a class="btn-primary" href="https://github.com/blode-lang/blode" target="_blank" rel="noopener">View on GitHub</a>
-          <a class="btn-outline" href="https://github.com/blode-lang/blode#readme" target="_blank" rel="noopener">Read the Docs</a>
-        </div>
-      </div>
-      <div class="hero-visual" aria-hidden="true">
-        <div class="code-card">
-          <div class="code-card-bar">
-            <span></span><span></span><span></span>
-            <span class="code-card-filename">main.bld</span>
-          </div>
-          <pre><code><span class="c-keyword">#contain</span> <span class="c-lib">&lt;sysio&gt;</span>
+    <main>
+        <section class="hero">
+            <h1>Programmieren soll sich <br><span class="highlight">natürlich</span> anfühlen.</h1>
+            <p class="subtitle">Blode ist eine minimalistische, ausdrucksstarke Programmiersprache, die entwickelt wurde, um die Barriere zwischen deinen Gedanken und dem Code zu schließen.</p>
+            <div class="cta-group">
+                <a href="#install" class="btn-primary">Jetzt ausprobieren</a>
+                <a href="#example" class="btn-secondary">Beispiel ansehen</a>
+            </div>
+        </section>
 
-<span class="c-keyword">act</span> <span class="c-fn">main</span>() {
-    sys.clear();
-    sys.output = <span class="c-str">"Hello from Blode"</span>;
-    sys.wait(<span class="c-num">1</span>);
-    sys.output = <span class="c-str">"Done."</span>;
-}</code></pre>
-        </div>
-      </div>
-    </div>
-  </header>
+        <section id="example" class="code-section">
+            <div class="code-card">
+                <div class="code-header">
+                    <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                    <span class="file-name">hello_world.blode</span>
+                </div>
+                <pre><code>
+// So einfach kann es sein
+print("Hallo Welt!")
 
-  <section class="features">
-    <div class="features-inner">
-      <div class="feature fade-up">
-        <div class="feature-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-        </div>
-        <h3>Windows-First</h3>
-        <p>Designed to produce native .exe files — no runtimes, no wrappers, no bloat.</p>
-      </div>
-      <div class="feature fade-up">
-        <div class="feature-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-        </div>
-        <h3>Clean Syntax</h3>
-        <p>A minimal syntax that gets out of your way. Familiar enough to pick up fast, distinct enough to be its own thing.</p>
-      </div>
-      <div class="feature fade-up">
-        <div class="feature-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-        </div>
-        <h3>C++ Powered</h3>
-        <p>Built on C++ for performance that matters. Small binaries, fast execution, direct system access.</p>
-      </div>
-      <div class="feature fade-up">
-        <div class="feature-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        </div>
-        <h3>Built in Public</h3>
-        <p>A solo project in active development. No false promises — just steady, honest work.</p>
-      </div>
-    </div>
-  </section>
+funktion gruss(name) {
+    ergebnis = "Hallo " + name
+    rueckgabe ergebnis
+}
+                </code></pre>
+            </div>
+        </section>
 
-  <section class="current-state">
-    <div class="state-inner">
-      <div class="state-text fade-up">
-        <h2>Where Blode is today</h2>
-        <p>Blode currently targets simple terminal programs via the <code>sysio</code> library. The core runtime is in place; the language is being shaped around real usage.</p>
-        <p>Console I/O, screen control, and timed output work. Variables, math, graphics, and a full build pipeline are on the roadmap.</p>
-        <a class="btn-primary" href="https://github.com/blode-lang/blode" target="_blank" rel="noopener">Follow the progress</a>
-      </div>
-      <div class="state-list fade-up">
-        <div class="state-item done"><span class="dot"></span><span>Console output &amp; input</span></div>
-        <div class="state-item done"><span class="dot"></span><span>Terminal clear &amp; wait</span></div>
-        <div class="state-item done"><span class="dot"></span><span>Standalone .exe compilation</span></div>
-        <div class="state-item pending"><span class="dot"></span><span>Variables &amp; types</span></div>
-        <div class="state-item pending"><span class="dot"></span><span>Math &amp; logic</span></div>
-        <div class="state-item pending"><span class="dot"></span><span>String operations</span></div>
-        <div class="state-item pending"><span class="dot"></span><span>GUI &amp; windowed apps</span></div>
-        <div class="state-item pending"><span class="dot"></span><span>CLI build tools</span></div>
-      </div>
-    </div>
-  </section>
+        <section class="features">
+            <div class="feature">
+                <h3>Einfachheit zuerst</h3>
+                <p>Kein unnötiger Ballast. Blode konzentriert sich auf das Wesentliche, damit du schneller ans Ziel kommst.</p>
+            </div>
+            <div class="feature">
+                <h3>Von Menschen gemacht</h3>
+                <p>Nicht für Maschinen optimiert, sondern für die Person, die davor sitzt. Lesbarkeit ist kein Feature, sondern Standard.</p>
+            </div>
+        </section>
+    </main>
 
-  <section class="cta">
-    <div class="cta-inner fade-up">
-      <h2>Star it. Watch it grow.</h2>
-      <p>Blode is open source and built in public. A star, a suggestion, or a follow keeps the momentum going.</p>
-      <a class="btn-primary large" href="https://github.com/blode-lang/blode" target="_blank" rel="noopener">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-        blode-lang/blode
-      </a>
-    </div>
-  </section>
+    <footer>
+        <p>Ein Herzensprojekt von <a href="https://github.com/blode-lang">Blode-Lang</a></p>
+    </footer>
 
-  <footer>
-    <div class="footer-inner">
-      <span>Blode — open source, built solo.</span>
-      <a href="https://github.com/blode-lang/blode" target="_blank" rel="noopener">GitHub</a>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
