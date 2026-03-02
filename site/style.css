@@ -192,9 +192,9 @@ h1 {
 
 /* Optionally color the dots on desktop */
 @media (min-width: 768px) {
-    .dot:nth-child(1) { background: #ff5f56; }
-    .dot:nth-child(2) { background: #ffbd2e; }
-    .dot:nth-child(3) { background: #27c93f; }
+    .dot:nth-child(1) { background: #ff0000; }
+    .dot:nth-child(2) { background: #ffff00; }
+    .dot:nth-child(3) { background: #008000; }
 }
 
 .file-name {
