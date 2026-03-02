@@ -48,27 +48,55 @@ nav {
 .links a:hover { color: var(--text); }
 
 /* --- HERO SECTION --- */
-.hero {
-    text-align: center;
-    padding: 120px 5% 60px;
-}
-
+/* --- HERO SECTION MASSIVE --- */
 .hero-main-title {
-    font-size: 10rem; /* Viel, viel größer */
+    font-size: clamp(5rem, 15vw, 10rem); /* Passt sich an, wird aber riesig */
     font-weight: 800;
-    color: var(--primary); /* Blau */
+    color: var(--primary);
     line-height: 0.8;
     letter-spacing: -5px;
-    margin-bottom: 15px;
-    text-shadow: 0 0 40px rgba(59, 130, 246, 0.2);
+    margin-bottom: 10px;
+    text-shadow: 0 0 40px rgba(59, 130, 246, 0.3);
 }
 
 .hero-sub-title {
-    font-size: 3rem; /* So groß wie das alte Blode */
+    font-size: clamp(2rem, 8vw, 3.5rem); /* Future of coding jetzt so groß wie das alte Blode */
     font-weight: 600;
     color: white;
     letter-spacing: -1px;
     margin-bottom: 35px;
+}
+
+/* --- CODE WINDOW FIX --- */
+.file-name {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-family: 'Fira Code', monospace; /* Coole Schriftart für den Dateinamen */
+}
+
+code {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem; /* Etwas kleiner auf Handys für mehr Platz */
+    color: #e6edf3;
+    white-space: pre; /* Behält Formatierung bei */
+    overflow-x: hidden; /* Verhindert Swipen */
+}
+
+/* Spezieller Fix für Handys, damit nichts mehr umbricht */
+@media (max-width: 768px) {
+    code {
+        font-size: 0.75rem; /* Schriftgröße sinkt, damit d! rechts stehen bleibt */
+        white-space: pre; 
+    }
+    
+    .code-card {
+        width: 95vw; /* Nutzt fast die ganze Breite */
+        margin: 0 auto;
+    }
+
+    pre {
+        padding: 15px; /* Weniger Polsterung innen für mehr Platz für den Code */
+    }
 }
 
 /* --- CODE WINDOW FIX --- */
