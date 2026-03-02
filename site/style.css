@@ -118,8 +118,6 @@ h1 {
     font-weight: 600;
     display: inline-block;
     transition: all 0.2s ease-out;
-    position: relative;
-    overflow: hidden;
 }
 
 .btn-primary {
@@ -134,10 +132,6 @@ h1 {
     box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
 }
 
-.btn-primary:active {
-    transform: translateY(1px);
-}
-
 .btn-secondary {
     color: var(--text);
     background: transparent;
@@ -146,7 +140,6 @@ h1 {
 
 .btn-secondary:hover {
     background: rgba(255,255,255,0.05);
-    border-color: var(--text-muted);
 }
 
 .code-section {
@@ -175,13 +168,7 @@ h1 {
 }
 
 .dots { display: flex; gap: 8px; }
-
-.dot {
-    height: 12px;
-    width: 12px;
-    border-radius: 50%;
-}
-
+.dot { height: 12px; width: 12px; border-radius: 50%; }
 .dot.red { background-color: var(--dot-red); }
 .dot.yellow { background-color: var(--dot-yellow); }
 .dot.green { background-color: var(--dot-green); }
@@ -205,9 +192,12 @@ code {
     white-space: pre;
 }
 
+/* Syntax Highlighting */
 .comment { color: #6a737d; font-style: italic; }
-.keyword { color: #ff7b72; font-weight: 600; }
-.string { color: #a5d6ff; }
+.directive { color: #d19a66; } /* Braun/Orange für #contain */
+.keyword { color: #c678dd; font-weight: 600; } /* Lila für act */
+.string { color: #98c379; } /* Grün für "Hello, World!" */
+.sys { color: #61afef; } /* Blau für sys.output */
 
 .features {
     display: grid;
@@ -223,27 +213,14 @@ code {
     padding: 40px 30px;
     border-radius: 12px;
     border: 1px solid var(--border);
-    transition: transform 0.2s ease, border-color 0.2s ease;
+    transition: transform 0.2s ease;
 }
 
-.feature:hover {
-    transform: translateY(-5px);
-    border-color: var(--primary);
-}
+.feature:hover { transform: translateY(-5px); }
 
 .feature.hobby-card {
     background: linear-gradient(145deg, #1e293b, #0f172a);
     border: 1px dashed var(--primary);
-}
-
-.feature h3 {
-    margin-bottom: 15px;
-    font-size: 1.5rem;
-}
-
-.feature p {
-    color: var(--text-muted);
-    font-weight: 300;
 }
 
 footer {
@@ -259,36 +236,18 @@ footer {
     justify-content: space-between;
     align-items: center;
     color: var(--text-muted);
-    font-size: 0.9rem;
 }
 
-.made-with {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
+.made-with { display: flex; align-items: center; gap: 6px; }
 
 .heart-icon {
     width: 18px;
     height: 18px;
-    color: #ef4444; /* Nur die Linie ist rot */
-    stroke-width: 2.5px; /* Macht die Linie des Lucide-Icons etwas dicker */
-    display: inline-block;
-    vertical-align: middle;
+    color: #ef4444;
 }
 
 @media (max-width: 768px) {
     h1 { font-size: 2.2rem; }
-    .hero { padding-top: 60px; }
-    .cta-group {
-        flex-direction: column;
-        width: 100%;
-        max-width: 300px;
-        margin: 0 auto 40px;
-    }
-    .btn-primary, .btn-secondary { width: 100%; text-align: center; }
-    .btn-secondary { margin-left: 0; }
-    pre { padding: 16px; }
-    code { font-size: 0.85rem; }
+    .cta-group { flex-direction: column; width: 100%; }
     .footer-content { flex-direction: column; gap: 10px; }
 }
