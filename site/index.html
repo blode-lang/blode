@@ -2,104 +2,124 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-  <title>Blode</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blode — Native Windows Language</title>
+  <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-  <div class="grain" aria-hidden="true"></div>
-
-  <nav class="nav">
-    <div class="nav__inner">
-      <span class="nav__logo">blode</span>
-      <span class="nav__badge">early dev</span>
+  <nav>
+    <div class="nav-inner">
+      <span class="nav-logo">Blode</span>
+      <a class="btn-ghost" href="https://github.com/blode-lang/blode" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        GitHub
+      </a>
     </div>
   </nav>
 
-  <section class="hero">
-    <div class="hero__glow" aria-hidden="true"></div>
-    <div class="hero__content">
-      <p class="hero__eyebrow">C++ · Windows · .exe</p>
-      <h1 class="hero__title">BLODE</h1>
-      <p class="hero__sub">A modern language for building standalone Windows executables</p>
-      <div class="hero__buttons">
-        <a href="https://github.com/blode-lang/blode" target="_blank" rel="noopener" class="btn btn--ghost">
-          <svg class="btn__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
-          </svg>
-          See GitHub
-        </a>
-        <a href="https://github.com/blode-lang/blode/tree/main/guide" target="_blank" rel="noopener" class="btn btn--primary">
-          Get Started
-        </a>
+  <header class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="badge">Early Development</div>
+        <h1>Build native Windows apps<br><em>without the overhead.</em></h1>
+        <p class="hero-sub">Blode is a C++-based language built for one purpose: creating efficient, standalone Windows executables with a clean, direct syntax.</p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="https://github.com/blode-lang/blode" target="_blank" rel="noopener">View on GitHub</a>
+          <a class="btn-outline" href="https://github.com/blode-lang/blode#readme" target="_blank" rel="noopener">Read the Docs</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="code-card">
+          <div class="code-card-bar">
+            <span></span><span></span><span></span>
+            <span class="code-card-filename">main.bld</span>
+          </div>
+          <pre><code><span class="c-keyword">#contain</span> <span class="c-lib">&lt;sysio&gt;</span>
+
+<span class="c-keyword">act</span> <span class="c-fn">main</span>() {
+    sys.clear();
+    sys.output = <span class="c-str">"Hello from Blode"</span>;
+    sys.wait(<span class="c-num">1</span>);
+    sys.output = <span class="c-str">"Done."</span>;
+}</code></pre>
+        </div>
       </div>
     </div>
-  </section>
+  </header>
 
   <section class="features">
-    <div class="container">
-      <div class="features__grid">
-
-        <article class="feature reveal" style="--d:0s">
-          <div class="feature__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-              <rect x="3" y="3" width="18" height="18" rx="3"/>
-              <path d="M9 9l3 3-3 3M13 15h2"/>
-            </svg>
-          </div>
-          <h3>Native .exe File</h3>
-          <p>Every Blode program compiles to a standalone Windows executable.</p>
-        </article>
-
-        <article class="feature reveal" style="--d:0.1s">
-          <div class="feature__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-              <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
-            </svg>
-          </div>
-          <h3>Clean Syntax</h3>
-          <p>Written in C++ for best performance and user friendly.</p>
-        </article>
-
-        <article class="feature reveal" style="--d:0.2s">
-          <div class="feature__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-              <circle cx="12" cy="12" r="3"/>
-              <path d="M12 2v3M12 19v3M2 12h3M19 12h3M5.636 5.636l2.122 2.122M16.243 16.243l2.121 2.121M5.636 18.364l2.122-2.121M16.243 7.757l2.121-2.121"/>
-            </svg>
-          </div>
-          <h3>System Suitable</h3>
-          <p>Low level kernel, build to be fast. </p>
-        </article>
-
-        <article class="feature reveal" style="--d:0.3s">
-          <div class="feature__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-            </svg>
-          </div>
-          <h3>Growing Fast</h3>
-          <p>Variables, math, data, graphic s and much more!</p>
-        </article>
-
+    <div class="features-inner">
+      <div class="feature fade-up">
+        <div class="feature-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <h3>Windows-First</h3>
+        <p>Designed to produce native .exe files — no runtimes, no wrappers, no bloat.</p>
+      </div>
+      <div class="feature fade-up">
+        <div class="feature-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <h3>Clean Syntax</h3>
+        <p>A minimal syntax that gets out of your way. Familiar enough to pick up fast, distinct enough to be its own thing.</p>
+      </div>
+      <div class="feature fade-up">
+        <div class="feature-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h3>C++ Powered</h3>
+        <p>Built on C++ for performance that matters. Small binaries, fast execution, direct system access.</p>
+      </div>
+      <div class="feature fade-up">
+        <div class="feature-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <h3>Built in Public</h3>
+        <p>A solo project in active development. No false promises — just steady, honest work.</p>
       </div>
     </div>
   </section>
 
-  <footer class="footer">
-    <div class="container footer__inner">
-      <span class="footer__copy">© 2026 Blode. All rights reserved.</span>
-      <div class="footer__links">
-        <a href="https://github.com/blode-lang/blode" target="_blank" rel="noopener">GitHub</a>
-        <span class="footer__sep">·</span>
-        <a href="https://github.com/blode-lang/blode/blob/main/LICENSE" target="_blank" rel="noopener">License</a>
-        <span class="footer__sep">·</span>
-        <a href="https://github.com/blode-lang/blode/tree/main/guide" target="_blank" rel="noopener">Docs</a>
+  <section class="current-state">
+    <div class="state-inner">
+      <div class="state-text fade-up">
+        <h2>Where Blode is today</h2>
+        <p>Blode currently targets simple terminal programs via the <code>sysio</code> library. The core runtime is in place; the language is being shaped around real usage.</p>
+        <p>Console I/O, screen control, and timed output work. Variables, math, graphics, and a full build pipeline are on the roadmap.</p>
+        <a class="btn-primary" href="https://github.com/blode-lang/blode" target="_blank" rel="noopener">Follow the progress</a>
       </div>
+      <div class="state-list fade-up">
+        <div class="state-item done"><span class="dot"></span><span>Console output &amp; input</span></div>
+        <div class="state-item done"><span class="dot"></span><span>Terminal clear &amp; wait</span></div>
+        <div class="state-item done"><span class="dot"></span><span>Standalone .exe compilation</span></div>
+        <div class="state-item pending"><span class="dot"></span><span>Variables &amp; types</span></div>
+        <div class="state-item pending"><span class="dot"></span><span>Math &amp; logic</span></div>
+        <div class="state-item pending"><span class="dot"></span><span>String operations</span></div>
+        <div class="state-item pending"><span class="dot"></span><span>GUI &amp; windowed apps</span></div>
+        <div class="state-item pending"><span class="dot"></span><span>CLI build tools</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="cta-inner fade-up">
+      <h2>Star it. Watch it grow.</h2>
+      <p>Blode is open source and built in public. A star, a suggestion, or a follow keeps the momentum going.</p>
+      <a class="btn-primary large" href="https://github.com/blode-lang/blode" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        blode-lang/blode
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <span>Blode — open source, built solo.</span>
+      <a href="https://github.com/blode-lang/blode" target="_blank" rel="noopener">GitHub</a>
     </div>
   </footer>
 
