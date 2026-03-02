@@ -47,10 +47,10 @@ nav {
 .links a { text-decoration: none; color: var(--text-muted); font-weight: 500; transition: color 0.2s; }
 .links a:hover { color: var(--text); }
 
-/* --- HERO SECTION --- */
-/* --- HERO SECTION MASSIVE --- */
+
 .hero-main-title {
-    font-size: clamp(5rem, 15vw, 10rem); /* Passt sich an, wird aber riesig */
+    /* Nutzt clamp, damit es auf Desktop 10rem groß ist, aber auf Handys mitwächst */
+    font-size: clamp(5rem, 15vw, 10rem); 
     font-weight: 800;
     color: var(--primary);
     line-height: 0.8;
@@ -60,12 +60,43 @@ nav {
 }
 
 .hero-sub-title {
-    font-size: clamp(2rem, 8vw, 3.5rem); /* Future of coding jetzt so groß wie das alte Blode */
+    font-size: clamp(2rem, 8vw, 3.5rem); 
     font-weight: 600;
     color: white;
-    letter-spacing: -1px;
     margin-bottom: 35px;
 }
+
+/* --- CODE WINDOW FIX (Stoppt den Umbruch) --- */
+.file-name {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-family: 'Fira Code', monospace; /* Die coole Schriftart für main.bld */
+}
+
+code {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    color: #e6edf3;
+    white-space: pre; /* VERHINDERT den Umbruch komplett */
+    overflow-x: auto; /* Erlaubt horizontales Scrollen NUR wenn nötig */
+}
+
+/* Spezieller Mobile-Fix für mehr Platz */
+@media (max-width: 768px) {
+    code {
+        font-size: 0.75rem; /* Etwas kleiner auf Handy, damit alles passt */
+    }
+    
+    pre {
+        padding: 15px; /* Weniger Rand innen = mehr Platz für den Text */
+    }
+
+    .code-card {
+        width: 95vw;
+        margin: 0 auto;
+    }
+}
+
 
 /* --- CODE WINDOW FIX --- */
 .file-name {
