@@ -7,6 +7,11 @@
     --text-muted: #94a3b8; /* Gray */
     --code-bg: #0b1120;
     --border: #334155;
+    
+    /* Window Dot Colors */
+    --dot-red: #ff5f56;
+    --dot-yellow: #ffbd2e;
+    --dot-green: #27c93f;
 }
 
 * {
@@ -15,12 +20,11 @@
     padding: 0;
     /* Remove default tap highlight on mobile */
     -webkit-tap-highlight-color: transparent;
-}
-
-/* Global Selection Style (Change the text selection color) */
-::selection {
-    background-color: rgba(59, 130, 246, 0.3);
-    color: var(--text);
+    
+    /* --- CRITICAL: PREVENT TEXT SELECTION GLOBALLY --- */
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and Consumer Preview */
+    user-select: none; /* Standard syntax */
 }
 
 html {
@@ -34,6 +38,17 @@ body {
     line-height: 1.6;
     overflow-x: hidden; /* Prevents tiny horizontal scrolls on mobile */
 }
+
+/* Allow selection within code blocks if you decide to change it later, 
+   but for now, it's disabled globally. If you want code to be copyable, 
+   uncomment the lines below: */
+/*
+code, pre {
+    -webkit-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+*/
 
 /* --- Navigation --- */
 nav {
@@ -49,7 +64,6 @@ nav {
     font-size: 1.5rem;
     font-weight: 700;
     letter-spacing: -1px;
-    user-select: none; /* User can't select the logo text */
 }
 
 .logo span { color: var(--primary); }
@@ -125,7 +139,6 @@ h1 {
     transition: all 0.2s ease-out; /* Smooth transition */
     position: relative;
     overflow: hidden;
-    user-select: none; /* Remove text marking on buttons */
 }
 
 .btn-primary {
@@ -181,26 +194,24 @@ h1 {
     border-bottom: 1px solid var(--border);
 }
 
-.dots { display: flex; gap: 6px; }
+.dots { display: flex; gap: 8px; }
 
 .dot {
-    height: 11px;
-    width: 11px;
-    background: #333; /* Default gray for dots */
+    height: 12px;
+    width: 12px;
     border-radius: 50%;
 }
 
-/* Optionally color the dots on desktop */
-@media (min-width: 768px) {
-    .dot:nth-child(1) { background: #ff0000; }
-    .dot:nth-child(2) { background: #ffff00; }
-    .dot:nth-child(3) { background: #008000; }
-}
+/* Specific colored dots */
+.dot.red { background-color: var(--dot-red); }
+.dot.yellow { background-color: var(--dot-yellow); }
+.dot.green { background-color: var(--dot-green); }
 
 .file-name {
     color: var(--text-muted);
     font-size: 0.8rem;
     font-family: 'Fira Code', monospace;
+    font-weight: 400;
 }
 
 pre {
@@ -220,10 +231,11 @@ code {
 .comment { color: #6a737d; font-style: italic; }
 .string { color: #9ece6a; }
 
-/* --- Features Section --- */
+/* --- Features Section (3 Containers) --- */
 .features {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* Updated grid for 3 columns on desktop, adapts on mobile */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     padding: 60px 5%;
     max-width: 1200px;
@@ -232,18 +244,26 @@ code {
 
 .feature {
     background: var(--bg-accent);
-    padding: 30px;
+    padding: 40px 30px;
     border-radius: 12px;
     border: 1px solid var(--border);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
 }
 
 .feature h3 {
-    margin-bottom: 12px;
-    font-size: 1.4rem;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    font-weight: 600;
 }
 
 .feature p {
     color: var(--text-muted);
+    font-weight: 300;
 }
 
 /* --- Footer --- */
@@ -253,11 +273,8 @@ footer {
     font-size: 0.9rem;
     color: var(--text-muted);
     border-top: 1px solid var(--border);
-    margin-top: 40px;
+    margin-top: 60px;
 }
-
-footer a { color: var(--primary); text-decoration: none; }
-footer a:hover { text-decoration: underline; }
 
 /* --- Responsiveness (Media Queries) --- */
 
@@ -289,4 +306,8 @@ footer a:hover { text-decoration: underline; }
     
     pre { padding: 16px; }
     code { font-size: 0.85rem; }
+    
+    .features {
+        padding: 40px 5%;
+    }
 }
