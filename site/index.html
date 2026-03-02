@@ -7,10 +7,9 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Fira+Code&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Fira+Code&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-
 <body>
 
     <header>
@@ -37,7 +36,11 @@
         <section id="example" class="code-section">
             <div class="code-card">
                 <div class="code-header">
-                    <div class="dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+                    <div class="dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
                     <span class="file-name">main.bld</span>
                 </div>
                 <pre><code><span class="comment">// keep it simple</span>
@@ -74,6 +77,7 @@
     </footer>
 
     <script>
+      // Initialisiert die Lucide Icons nach dem Laden der Seite
       window.onload = function() {
         lucide.createIcons();
       };
