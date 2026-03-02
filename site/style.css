@@ -46,7 +46,6 @@ nav {
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
-    letter-spacing: -1px;
 }
 
 .logo span { color: var(--primary); }
@@ -64,103 +63,101 @@ nav {
     font-weight: 500;
 }
 
-.links a:not(.btn-docs):hover { color: var(--text); }
+.links a:hover { color: var(--text); }
 
-.btn-docs {
-    border: 1px solid var(--border);
-    padding: 8px 16px;
-    border-radius: 6px;
-    font-size: 0.9rem;
-}
-
-.btn-docs:hover {
-    background: var(--bg-accent);
-    border-color: var(--text-muted);
-}
-
+/* --- HERO SECTION --- */
 .hero {
     text-align: center;
-    padding: 80px 5% 40px;
-    max-width: 900px;
+    padding: 100px 5% 60px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
-h1 {
-    font-size: 3rem;
-    line-height: 1.1;
-    margin-bottom: 20px;
+.hero-tagline {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.9rem;
+    color: var(--primary);
     font-weight: 700;
-    letter-spacing: -1px;
+    margin-bottom: 10px;
+}
+
+.hero-title {
+    font-size: 6rem; /* Gigantic Title */
+    font-weight: 800;
+    letter-spacing: -3px;
+    line-height: 1;
+    margin-bottom: 25px;
 }
 
 .highlight {
-    color: var(--primary);
+    color: var(--text);
+    text-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
 }
 
 .subtitle {
-    font-size: 1.15rem;
+    font-size: 1.25rem;
     color: var(--text-muted);
+    max-width: 600px;
     margin: 0 auto 40px;
-    font-weight: 300;
 }
 
 .cta-group {
     display: flex;
     gap: 15px;
     justify-content: center;
-    align-items: center;
 }
 
+/* --- BUTTONS --- */
 .btn-primary, .btn-secondary {
-    padding: 14px 28px;
-    border-radius: 8px;
+    padding: 16px 32px;
+    border-radius: 12px;
     text-decoration: none;
     font-weight: 600;
-    display: inline-block;
-    transition: all 0.2s ease-out;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn-primary {
     background: var(--primary);
     color: white;
-    box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 10px 20px -10px rgba(59, 130, 246, 0.5);
 }
 
 .btn-primary:hover {
+    transform: translateY(-3px) scale(1.02);
     background: var(--primary-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+    box-shadow: 0 20px 30px -10px rgba(59, 130, 246, 0.6);
 }
 
 .btn-secondary {
     color: var(--text);
-    background: transparent;
     border: 1px solid var(--border);
 }
 
 .btn-secondary:hover {
-    background: rgba(255,255,255,0.05);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--text-muted);
 }
 
+/* --- CODE WINDOW --- */
 .code-section {
     display: flex;
     justify-content: center;
-    padding: 40px 5%;
+    padding: 20px 5% 80px;
 }
 
 .code-card {
     background: var(--code-bg);
-    border-radius: 12px;
+    border-radius: 16px;
     width: 100%;
-    max-width: 650px;
+    max-width: 700px;
     border: 1px solid var(--border);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-    overflow: hidden;
+    box-shadow: 0 30px 60px -12px rgba(0,0,0,0.5);
 }
 
 .code-header {
-    background: #1a1e2e;
-    padding: 12px 18px;
+    background: rgba(255,255,255,0.03);
+    padding: 14px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -169,36 +166,29 @@ h1 {
 
 .dots { display: flex; gap: 8px; }
 .dot { height: 12px; width: 12px; border-radius: 50%; }
-.dot.red { background-color: var(--dot-red); }
-.dot.yellow { background-color: var(--dot-yellow); }
-.dot.green { background-color: var(--dot-green); }
-
-.file-name {
-    color: var(--text-muted);
-    font-size: 0.8rem;
-    font-family: 'Fira Code', monospace;
-}
+.dot.red { background: var(--dot-red); }
+.dot.yellow { background: var(--dot-yellow); }
+.dot.green { background: var(--dot-green); }
 
 pre {
     padding: 24px;
-    overflow-x: auto;
 }
 
 code {
     font-family: 'Fira Code', monospace;
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: #e6edf3;
-    text-align: left;
-    white-space: pre;
+    white-space: pre-wrap; /* Code bricht um statt zu scrollen */
+    word-break: break-all;
 }
 
-/* Syntax Highlighting */
 .comment { color: #6a737d; font-style: italic; }
-.directive { color: #d19a66; } /* Braun/Orange für #contain */
-.keyword { color: #c678dd; font-weight: 600; } /* Lila für act */
-.string { color: #98c379; } /* Grün für "Hello, World!" */
-.sys { color: #61afef; } /* Blau für sys.output */
+.directive { color: #d19a66; }
+.keyword { color: #c678dd; font-weight: 600; }
+.string { color: #98c379; }
+.sys { color: #61afef; }
 
+/* --- FEATURE CONTAINERS --- */
 .features {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -211,18 +201,33 @@ code {
 .feature {
     background: var(--bg-accent);
     padding: 40px 30px;
-    border-radius: 12px;
+    border-radius: 20px;
     border: 1px solid var(--border);
-    transition: transform 0.2s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.feature:hover { transform: translateY(-5px); }
+.feature:hover {
+    transform: translateY(-10px) scale(1.03);
+    border-color: var(--primary);
+    box-shadow: 0 20px 40px -15px rgba(0,0,0,0.4);
+    background: rgba(30, 41, 59, 0.8);
+}
+
+.feature h3 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.feature p {
+    color: var(--text-muted);
+}
 
 .feature.hobby-card {
-    background: linear-gradient(145deg, #1e293b, #0f172a);
     border: 1px dashed var(--primary);
+    background: linear-gradient(145deg, #1e293b, #0f172a);
 }
 
+/* --- FOOTER --- */
 footer {
     padding: 50px 5%;
     border-top: 1px solid var(--border);
@@ -239,15 +244,12 @@ footer {
 }
 
 .made-with { display: flex; align-items: center; gap: 6px; }
+.heart-icon { width: 18px; color: #ef4444; }
 
-.heart-icon {
-    width: 18px;
-    height: 18px;
-    color: #ef4444;
-}
-
+/* --- RESPONSIVE --- */
 @media (max-width: 768px) {
-    h1 { font-size: 2.2rem; }
+    .hero-title { font-size: 4rem; }
+    .hero { padding-top: 60px; }
     .cta-group { flex-direction: column; width: 100%; }
-    .footer-content { flex-direction: column; gap: 10px; }
+    .footer-content { flex-direction: column; gap: 15px; }
 }
