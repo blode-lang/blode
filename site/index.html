@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
 
@@ -35,11 +35,7 @@
         <section id="example" class="code-section">
             <div class="code-card">
                 <div class="code-header">
-                    <div class="dots">
-                        <span class="dot red"></span>
-                        <span class="dot yellow"></span>
-                        <span class="dot green"></span>
-                    </div>
+                    <div class="dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
                     <span class="file-name">main.bld</span>
                 </div>
                 <pre><code><span class="comment">// Keep it simple</span>
@@ -77,8 +73,10 @@ print(<span class="string">"Hello World!"</span>)
     </footer>
 
     <script>
-      // Das hier aktiviert die Icons ohne Fehlermeldung
-      lucide.createIcons();
+      // Sicherstellen, dass Lucide erst startet, wenn die Seite bereit ist
+      window.onload = function() {
+        lucide.createIcons();
+      };
     </script>
 </body>
 </html>
