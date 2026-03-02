@@ -1,11 +1,18 @@
- ### Blode is in early development and not yet available.
+# Blode 🚀
+
+**Blode** is currently in **early development** and not yet publicly available.
 
 ---
 
- # Expected release date
- ## 10.03.2026
+## 📅 Expected Release Date
+**10.03.2026**
 
-## NOTE:
-> This is a solo project, so progress is slow.
+---
 
-### THANKS FOR YOUR PATIENCE AND SUPPORT
+## ⚠️ Note
+> This is a solo project, so progress may be slow.
+
+---
+
+## 🙏 Thanks
+Thank you for your **patience and support**! Your interest keeps the project moving forward.
