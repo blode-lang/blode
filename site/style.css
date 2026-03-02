@@ -265,14 +265,16 @@ footer {
 .made-with {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 6px;
 }
 
 .heart-icon {
-    width: 16px;
-    height: 16px;
-    color: #ef4444;
-    fill: #ef4444;
+    width: 18px;
+    height: 18px;
+    color: #ef4444; /* Nur die Linie ist rot */
+    stroke-width: 2.5px; /* Macht die Linie des Lucide-Icons etwas dicker */
+    display: inline-block;
+    vertical-align: middle;
 }
 
 @media (max-width: 768px) {
