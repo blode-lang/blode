@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
 
@@ -41,17 +42,14 @@
                     </div>
                     <span class="file-name">main.bld</span>
                 </div>
-                <pre><code>
-<span class="comment">// Keep it simple</span>
-
+                <pre><code><span class="comment">// Keep it simple</span>
 print(<span class="string">"Hello World!"</span>)
 
 <span class="comment">// Define things without the headache</span>
-funk greet(name) {
+<span class="keyword">funk</span> greet(name) {
     result = <span class="string">"Hey "</span> + name + <span class="string">", nice to see you!"</span>
-    return result
-}
-                </code></pre>
+    <span class="keyword">return</span> result
+}</code></pre>
             </div>
         </section>
 
@@ -72,8 +70,14 @@ funk greet(name) {
     </main>
 
     <footer>
-        <p>© blode 2026</p>
+        <div class="footer-content">
+            <p>© 2026 blode</p>
+            <p class="made-with">made with <i data-lucide="heart" class="heart-icon"></i></p>
+        </div>
     </footer>
 
+    <script>
+      lucide.createIcons();
+    </script>
 </body>
 </html>
