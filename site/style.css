@@ -1,6 +1,6 @@
 :root {
     --primary: #3b82f6;
-    --primary-glow: rgba(59, 130, 246, 0.5);
+    --primary-glow: rgba(59, 130, 246, 0.4);
     --bg: #0f172a;
     --bg-accent: #1e293b;
     --text: #f1f5f9;
@@ -17,7 +17,6 @@
     margin: 0;
     padding: 0;
     -webkit-tap-highlight-color: transparent;
-    -webkit-user-select: none;
     user-select: none;
 }
 
@@ -31,6 +30,7 @@ body {
     overflow-x: hidden;
 }
 
+/* --- NAVIGATION --- */
 nav {
     display: flex;
     justify-content: space-between;
@@ -44,112 +44,37 @@ nav {
 .logo span { color: var(--primary); }
 
 .links { display: flex; align-items: center; gap: 20px; }
-.links a { text-decoration: none; color: var(--text-muted); font-weight: 500; transition: color 0.2s; }
+.links a { 
+    text-decoration: none; 
+    color: var(--text-muted); 
+    font-weight: 500; 
+    transition: color 0.2s; 
+}
 .links a:hover { color: var(--text); }
 
+/* --- HERO SECTION --- */
+.hero {
+    text-align: center;
+    padding: 80px 5% 40px;
+}
 
 .hero-main-title {
-    /* Nutzt clamp, damit es auf Desktop 10rem groß ist, aber auf Handys mitwächst */
-    font-size: clamp(5rem, 15vw, 10rem); 
-    font-weight: 800;
+    font-size: clamp(5rem, 15vw, 10rem); /* Riesig und responsiv */
+    font-weight: 900;
     color: var(--primary);
     line-height: 0.8;
     letter-spacing: -5px;
     margin-bottom: 10px;
-    text-shadow: 0 0 40px rgba(59, 130, 246, 0.3);
+    text-shadow: 0 0 50px var(--primary-glow);
 }
 
 .hero-sub-title {
-    font-size: clamp(2rem, 8vw, 3.5rem); 
-    font-weight: 600;
-    color: white;
-    margin-bottom: 35px;
+    font-size: clamp(2rem, 8vw, 3.5rem); /* So groß wie davor Blode */
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -1px;
+    margin-bottom: 30px;
 }
-
-/* --- CODE WINDOW FIX (Stoppt den Umbruch) --- */
-.file-name {
-    color: var(--text-muted);
-    font-size: 0.85rem;
-    font-family: 'Fira Code', monospace; /* Die coole Schriftart für main.bld */
-}
-
-code {
-    font-family: 'Fira Code', monospace;
-    font-size: 0.9rem;
-    color: #e6edf3;
-    white-space: pre; /* VERHINDERT den Umbruch komplett */
-    overflow-x: auto; /* Erlaubt horizontales Scrollen NUR wenn nötig */
-}
-
-/* Spezieller Mobile-Fix für mehr Platz */
-@media (max-width: 768px) {
-    code {
-        font-size: 0.75rem; /* Etwas kleiner auf Handy, damit alles passt */
-    }
-    
-    pre {
-        padding: 15px; /* Weniger Rand innen = mehr Platz für den Text */
-    }
-
-    .code-card {
-        width: 95vw;
-        margin: 0 auto;
-    }
-}
-
-
-/* --- CODE WINDOW FIX --- */
-.file-name {
-    color: var(--text-muted);
-    font-size: 0.85rem;
-    font-family: 'Fira Code', monospace; /* Coole Schriftart für den Dateinamen */
-}
-
-code {
-    font-family: 'Fira Code', monospace;
-    font-size: 0.9rem; /* Etwas kleiner auf Handys für mehr Platz */
-    color: #e6edf3;
-    white-space: pre; /* Behält Formatierung bei */
-    overflow-x: hidden; /* Verhindert Swipen */
-}
-
-/* Spezieller Fix für Handys, damit nichts mehr umbricht */
-@media (max-width: 768px) {
-    code {
-        font-size: 0.75rem; /* Schriftgröße sinkt, damit d! rechts stehen bleibt */
-        white-space: pre; 
-    }
-    
-    .code-card {
-        width: 95vw; /* Nutzt fast die ganze Breite */
-        margin: 0 auto;
-    }
-
-    pre {
-        padding: 15px; /* Weniger Polsterung innen für mehr Platz für den Code */
-    }
-}
-
-/* --- CODE WINDOW FIX --- */
-.file-name {
-    color: var(--text-muted);
-    font-size: 0.85rem;
-    font-family: 'Fira Code', monospace; /* Die coole Schriftart ist zurück */
-    font-weight: 400;
-}
-
-/* --- MOBILE OPTIMIERUNG --- */
-@media (max-width: 768px) {
-    .hero-main-title {
-        font-size: 6rem; /* Immer noch riesig auf dem Handy */
-        letter-spacing: -3px;
-    }
-    
-    .hero-sub-title {
-        font-size: 2.2rem;
-    }
-}
-
 
 .subtitle {
     font-size: 1.1rem;
@@ -184,17 +109,18 @@ code {
 .btn-secondary:hover { background: rgba(255,255,255,0.05); }
 
 /* --- CODE WINDOW --- */
-.code-section { display: flex; justify-content: center; padding: 20px 5% 80px; }
+.code-section { display: flex; justify-content: center; padding: 40px 5%; }
 .code-card {
     background: var(--code-bg);
     border-radius: 16px;
     width: 100%;
     max-width: 700px;
     border: 1px solid var(--border);
+    overflow: hidden;
 }
 
 .code-header {
-    background: rgba(255,255,255,0.02);
+    background: rgba(255,255,255,0.03);
     padding: 14px 20px;
     display: flex;
     justify-content: space-between;
@@ -208,22 +134,34 @@ code {
 .dot.yellow { background: var(--dot-yellow); }
 .dot.green { background: var(--dot-green); }
 
-pre { padding: 24px; }
+.file-name {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-family: 'Fira Code', monospace;
+}
+
+pre { 
+    padding: 24px; 
+    margin: 0;
+    overflow-x: auto; 
+}
+
 code {
     font-family: 'Fira Code', monospace;
     font-size: 1rem;
     color: #e6edf3;
-    white-space: pre-wrap;
-    word-break: break-all;
+    white-space: pre; /* Verhindert Zeilenumbruch (Fix für das d!) */
+    word-break: normal;
 }
 
+/* Syntax Highlighting */
 .comment { color: #6a737d; font-style: italic; }
 .directive { color: #d19a66; }
-.keyword { color: #c678dd; }
+.keyword { color: #c678dd; font-weight: 600; }
 .string { color: #98c379; }
 .sys { color: #61afef; }
 
-/* --- FEATURE CONTAINERS --- */
+/* --- FEATURES --- */
 .features {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -239,12 +177,10 @@ code {
     border-radius: 24px;
     border: 1px solid var(--border);
     transition: all 0.3s ease;
-    cursor: default;
 }
 
-/* Hover "Highlighting" Effect */
 .feature:hover {
-    background: rgba(59, 130, 246, 0.05); /* Very subtle blue tint */
+    background: rgba(59, 130, 246, 0.05);
     border-color: var(--primary);
     box-shadow: 0 0 30px rgba(59, 130, 246, 0.15);
     transform: translateY(-8px);
@@ -254,24 +190,30 @@ code {
 .feature:hover h3 { color: var(--primary); }
 .feature p { color: var(--text-muted); }
 
-.feature.hobby-card {
-    border: 1px dashed var(--border);
-}
-
-.feature.hobby-card:hover {
-    border: 1px dashed var(--primary);
-}
+.feature.hobby-card { border: 1px dashed var(--border); }
+.feature.hobby-card:hover { border: 1px dashed var(--primary); }
 
 /* --- FOOTER --- */
 footer { padding: 50px 5%; border-top: 1px solid var(--border); margin-top: 60px; }
-.footer-content { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; color: var(--text-muted); }
+.footer-content { 
+    max-width: 1400px; 
+    margin: 0 auto; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    color: var(--text-muted); 
+}
 .made-with { display: flex; align-items: center; gap: 6px; }
-.heart-icon { width: 18px; color: #ef4444; }
+.heart-icon { width: 18px; color: #ef4444; stroke-width: 2.5px; }
 
-/* --- RESPONSIVE --- */
+/* --- MOBILE RESPONSIVENESS --- */
 @media (max-width: 768px) {
-    .hero-main-title { font-size: 4.5rem; }
+    .hero-main-title { font-size: 4.5rem; letter-spacing: -2px; }
     .hero-sub-title { font-size: 1.8rem; }
     .cta-group { flex-direction: column; width: 100%; }
     .footer-content { flex-direction: column; gap: 15px; }
+    
+    /* Code-Fix für Handy */
+    code { font-size: 0.8rem; } 
+    pre { padding: 15px; }
 }
