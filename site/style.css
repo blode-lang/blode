@@ -205,8 +205,10 @@ code {
     white-space: pre;
 }
 
-.comment { color: #6a737d; font-style: italic; }
-.string { color: #9ece6a; }
+..comment { 
+    color: #6a737d; 
+    font-style: italic; 
+}
 
 .features {
     display: grid;
