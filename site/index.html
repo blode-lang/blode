@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blode | Eine Sprache, die mit dir denkt</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Blode | The human-centric programming language</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Fira+Code&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -15,35 +15,35 @@
         <nav>
             <div class="logo">Blode<span>.</span></div>
             <div class="links">
-                <a href="https://github.com/blode-lang/blode">GitHub</a>
-                <a href="#" class="btn-docs">Dokumentation</a>
+                <a href="https://github.com/blode-lang/blode" target="_blank">GitHub</a>
+                <a href="#" class="btn-docs">Docs</a>
             </div>
         </nav>
     </header>
 
     <main>
         <section class="hero">
-            <h1>Programmieren soll sich <br><span class="highlight">natürlich</span> anfühlen.</h1>
-            <p class="subtitle">Blode ist eine minimalistische, ausdrucksstarke Programmiersprache, die entwickelt wurde, um die Barriere zwischen deinen Gedanken und dem Code zu schließen.</p>
+            <h1>Coding should feel <br><span class="highlight">natural</span>.</h1>
+            <p class="subtitle">Blode is a minimalist, expressive language designed to bridge the gap between your thoughts and your code.</p>
             <div class="cta-group">
-                <a href="#install" class="btn-primary">Jetzt ausprobieren</a>
-                <a href="#example" class="btn-secondary">Beispiel ansehen</a>
+                <a href="#install" class="btn-primary">Get Started</a>
+                <a href="#example" class="btn-secondary">View Example</a>
             </div>
         </section>
 
         <section id="example" class="code-section">
             <div class="code-card">
                 <div class="code-header">
-                    <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                    <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
                     <span class="file-name">hello_world.blode</span>
                 </div>
                 <pre><code>
-// So einfach kann es sein
-print("Hallo Welt!")
+<span class="comment">// It can be this simple</span>
+print(<span class="string">"Hello World!"</span>)
 
-funktion gruss(name) {
-    ergebnis = "Hallo " + name
-    rueckgabe ergebnis
+funk greet(name) {
+    result = <span class="string">"Hello "</span> + name
+    return result
 }
                 </code></pre>
             </div>
@@ -51,18 +51,18 @@ funktion gruss(name) {
 
         <section class="features">
             <div class="feature">
-                <h3>Einfachheit zuerst</h3>
-                <p>Kein unnötiger Ballast. Blode konzentriert sich auf das Wesentliche, damit du schneller ans Ziel kommst.</p>
+                <h3>Simplicity First</h3>
+                <p>No boilerplate. No unnecessary clutter. Blode focuses on what matters, keeping your workflow clean.</p>
             </div>
             <div class="feature">
-                <h3>Von Menschen gemacht</h3>
-                <p>Nicht für Maschinen optimiert, sondern für die Person, die davor sitzt. Lesbarkeit ist kein Feature, sondern Standard.</p>
+                <h3>Built for Humans</h3>
+                <p>Optimized for readability, not just machine execution. Code that reads like poetry.</p>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>Ein Herzensprojekt von <a href="https://github.com/blode-lang">Blode-Lang</a></p>
+        <p>A passion project by <a href="https://github.com/blode-lang" target="_blank">Blode-Lang</a></p>
     </footer>
 
 </body>
