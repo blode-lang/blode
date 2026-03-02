@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 </head>
 <body>
 
@@ -77,13 +77,8 @@ print(<span class="string">"Hello World!"</span>)
     </footer>
 
     <script>
-import { createIcons, heart } from 'lucide';
-
-createIcons({
-  icons: {
-    heart
-  }
-});
-</script>
+      // Das hier aktiviert die Icons ohne Fehlermeldung
+      lucide.createIcons();
+    </script>
 </body>
 </html>
