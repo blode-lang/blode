@@ -24,11 +24,11 @@
 
     <main>
         <section class="hero">
-            <h1>Code that speaks <br><span class="highlight">your language</span>.</h1>
-            <p class="subtitle">I built Blode because I wanted a language that feels less like talking to a brick wall and more like writing down an idea. Simple, honest, and easy to read.</p>
+            <h1>Evolution of Coding<br><span class="highlight">Blode</span></h1>
+            <p class="subtitle">I made Blode because I wanted a language to create Windows executables easier.</p>
             <div class="cta-group">
                 <a href="#install" class="btn-primary">Try it out</a>
-                <a href="#example" class="btn-secondary">Check the code</a>
+                <a href="#example" class="btn-secondary">Check Example</a>
             </div>
         </section>
 
@@ -38,14 +38,14 @@
                     <div class="dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
                     <span class="file-name">main.bld</span>
                 </div>
-                <pre><code><span class="comment">// Keep it simple</span>
-print(<span class="string">"Hello World!"</span>)
+                <pre><code><span class="comment">// keep it simple</span>
+<span class="directive">#contain</span> <span class="string">&lt;sysio&gt;</span>
 
-<span class="comment">// Define things without the headache</span>
-<span class="keyword">funk</span> greet(name) {
-    result = <span class="string">"Hey "</span> + name + <span class="string">", nice to see you!"</span>
-    <span class="keyword">return</span> result
-}</code></pre>
+<span class="comment">// main function</span>
+<span class="keyword">act</span> main() {
+       <span class="sys">sys.output</span> = <span class="string">"Hello, World!"</span>;
+}
+<span class="comment">// printing hello world</span></code></pre>
             </div>
         </section>
 
@@ -73,7 +73,6 @@ print(<span class="string">"Hello World!"</span>)
     </footer>
 
     <script>
-      // Sicherstellen, dass Lucide erst startet, wenn die Seite bereit ist
       window.onload = function() {
         lucide.createIcons();
       };
