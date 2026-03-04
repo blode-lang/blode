@@ -39,7 +39,7 @@ act main() {
 ```
 ## Step by Step Explanation:
 
-**"#contain <sysio>** – Imports the sysio library so you can use sys commands.
+**"#contain <sysio>"** – Imports the sysio library so you can use sys commands.
 
 `sys.output = "Hello, World!"` – Prints the message to the terminal.
 
